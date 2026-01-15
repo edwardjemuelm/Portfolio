@@ -1,0 +1,1394 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>codebyedward.com</title>
+    <link rel="stylesheet" href="styles.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Sora:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" href="./image/logo.png" type="image/png">
+</head>
+
+<body>
+    <!-- Mouse Follower -->
+    <div class="mouse-follower"></div>
+
+    <!-- Background Elements -->
+    <div class="bg-elements">
+        <div class="bg-circle circle-1"></div>
+        <div class="bg-circle circle-2"></div>
+        <div class="bg-circle circle-3"></div>
+        <div class="bg-shape shape-1"></div>
+        <div class="bg-shape shape-2"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <div class="logo-icon">
+                    <img src="./image/logo.png" alt="Logo" />
+                </div>
+                <h2>codebyedward<span>.com</span></h2>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#home" class="nav-link active">Home</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#skills" class="nav-link">Skills</a></li>
+                <li><a href="#services" class="nav-link">Services</a></li>
+                <li><a href="#projects" class="nav-link">Projects</a></li>
+                <li><a href="#experience" class="nav-link">Experience</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+                <li class="mobile-theme-toggle">
+                    <div class="theme-toggle">
+                        <i class="fas fa-sun"></i>
+                    </div>
+                </li>
+            </ul>
+            <div class="theme-toggle desktop-theme-toggle">
+                <i class="fas fa-sun"></i>
+            </div>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div id="home" class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <div class="hero-greeting">
+                        <div class="greeting-badge">
+                            <span>Hello, I'm</span>
+                        </div>
+                    </div>
+                    <h1 class="hero-title">
+                        <span class="title-line">Edward Jemuel</span>
+                        <span class="">G. Montano</span>
+                    </h1>
+                    <div class="hero-subtitle">
+                        <span class="typed-text"></span>
+                        <span class="cursor">&nbsp;</span>
+                    </div>
+                    <p class="hero-description">Passionate about creating innovative solutions and transforming ideas
+                        into reality through code. Dedicated to continuous learning and delivering exceptional results.
+                    </p>
+                    <div class="hero-stats">
+                        <div class="stat">
+                            <div class="stat-icon">
+                                <i class="fas fa-code"></i>
+                            </div>
+                            <div class="stat-content">
+                                <span class="stat-number">8+</span>
+                                <span class="stat-label">Projects</span>
+                            </div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-icon">
+                                <i class="fas fa-graduation-cap"></i>
+                            </div>
+                            <div class="stat-content">
+                                <span class="stat-number">4th</span>
+                                <span class="stat-label">Year Student</span>
+                            </div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-icon">
+                                <i class="fas fa-certificate"></i>
+                            </div>
+                            <div class="stat-content">
+                                <span class="stat-number">4+</span>
+                                <span class="stat-label">Seminars</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hero-buttons">
+                        <a href="#projects" class="btn btn-primary">
+                            <span>View My Work</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                        <!-- Added download resume button -->
+                        <button id="downloadResumeBtn" class="btn btn-secondary">
+                            <span>Download Resume</span>
+                            <i class="fas fa-download"></i>
+                        </button>
+                        <a href="#contact" class="btn btn-secondary">
+                            <span>Get In Touch</span>
+                            <i class="fas fa-envelope"></i>
+                        </a>
+                    </div>
+                    <div class="social-links">
+                        <a href="mailto:edwardmontano.dev@gmail.com" class="social-link" aria-label="Email">
+                            <i class="fas fa-envelope"></i>
+                        </a>
+                        <a href="tel:09512881934" class="social-link" aria-label="Phone">
+                            <i class="fas fa-phone"></i>
+                        </a>
+                        <a href="#" class="social-link" aria-label="GitHub">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/edward-jemuel-montano-84819932a/" class="social-link"
+                            aria-label="LinkedIn">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">About Me</span>
+                <h2 class="section-title">Who I Am</h2>
+                <div class="section-line"></div>
+            </div>
+            <div class="about-content">
+                <div class="about-image">
+                    <div class="image-frame">
+                        <img src="./image/Montano.jpg" alt="Edward Montano" class="about-img">
+                        <div class="frame-decoration"></div>
+                    </div>
+                    <div class="experience-badge">
+                        <div class="badge-content">
+                            <span class="badge-number">2+</span>
+                            <span class="badge-text">Years<br>Experience</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-text">
+                    <h3>Information Technology Student & Developer</h3>
+                    <p>I'm currently a 3rd year Bachelor of Science in Information Technology student at Pamantasan ng
+                        Lungsod ng Valenzuela, passionate about creating innovative digital solutions.</p>
+
+                    <div class="about-cards">
+                        <div class="about-card">
+                            <div class="card-icon">
+                                <i class="fas fa-graduation-cap"></i>
+                            </div>
+                            <h4>Education</h4>
+                            <p>BS Information Technology<br>Pamantasan ng Lungsod ng Valenzuela</p>
+                        </div>
+
+                        <div class="about-card">
+                            <div class="card-icon">
+                                <i class="fas fa-bullseye"></i>
+                            </div>
+                            <h4>My Goal</h4>
+                            <p>To acquire valuable knowledge and skills through real-world applications</p>
+                        </div>
+                    </div>
+
+                    <p class="about-mission">My mission is to utilize my technical and managerial skills to contribute
+                        effectively, achieve goals, and deliver strong performance in every project I undertake.</p>
+
+                    <div class="about-buttons">
+                        <a href="#contact" class="btn btn-primary">
+                            <span>Contact Me</span>
+                            <i class="fas fa-paper-plane"></i>
+                        </a>
+                        <a href="#projects" class="btn btn-outline">
+                            <span>My Projects</span>
+                            <i class="fas fa-laptop-code"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">My Skills</span>
+                <h2 class="section-title">What I Do</h2>
+                <div class="section-line"></div>
+            </div>
+
+            <div class="skills-tabs">
+                <button class="tab-btn active" data-tab="technical">Technical Skills</button>
+                <button class="tab-btn" data-tab="software">Software & Tools</button>
+                <button class="tab-btn" data-tab="other">Other Skills</button>
+            </div>
+
+            <div class="skills-content">
+                <!-- Technical Skills Tab -->
+                <div class="tab-content active" id="technical">
+                    <div class="skills-grid">
+                        <div class="skill-item">
+                            <div class="skill-icon">
+                                <i class="fab fa-php"></i>
+                            </div>
+                            <h4>PHP</h4>
+                        </div>
+
+                        <div class="skill-item">
+                            <div class="skill-icon">
+                                <i class="fas fa-database"></i>
+                            </div>
+                            <h4>MySQL</h4>
+                        </div>
+
+                        <div class="skill-item">
+                            <div class="skill-icon">
+                                <i class="fab fa-html5"></i>
+                            </div>
+                            <h4>HTML & CSS</h4>
+                        </div>
+
+                        <div class="skill-item">
+                            <div class="skill-icon">
+                                <i class="fab fa-microsoft"></i>
+                            </div>
+                            <h4>C#</h4>
+                        </div>
+
+                        <div class="skill-item">
+                            <div class="skill-icon">
+                                <i class="fas fa-paint-brush"></i>
+                            </div>
+                            <h4>UI/UX Design</h4>
+                        </div>
+
+                        <div class="skill-item">
+                            <div class="skill-icon">
+                                <i class="fas fa-bug"></i>
+                            </div>
+                            <h4>QA Testing</h4>
+                        </div>
+
+
+                        <div class="skill-item">
+                            <div class="skill-icon">
+                                <i class="fas fa-network-wired"></i>
+                            </div>
+                            <h4>Networking</h4>
+                        </div>
+
+
+                        <div class="skill-item">
+                            <div class="skill-icon">
+                                <i class="fab fa-react"></i>
+                            </div>
+                            <h4>React</h4>
+                        </div>
+
+                        <div class="skill-item">
+                            <div class="skill-icon">
+                                <i class="fab fa-laravel"></i>
+                            </div>
+                            <h4>Laravel</h4>
+                        </div>
+
+                        <div class="skill-item">
+                            <div class="skill-icon">
+                                <i class="fab fa-python"></i>
+                            </div>
+                            <h4>Python</h4>
+                        </div>
+
+                        <div class="skill-item">
+                            <div class="skill-icon">
+                                <i class="fab fa-java"></i>
+                            </div>
+                            <h4>Javascript/Java</h4>
+                        </div>
+
+                        <div class="skill-item">
+                            <div class="skill-icon">
+                                <i class="fab fa-angular"></i>
+                            </div>
+                            <h4>Ionic Framework (Angular)</h4>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Software & Tools Tab -->
+                <div class="tab-content" id="software">
+                    <div class="skills-grid">
+                        <div class="skill-item">
+                            <div class="skill-icon">
+                                <i class="fab fa-figma"></i>
+                            </div>
+                            <h4>Figma</h4>
+                        </div>
+
+                        <div class="skill-item">
+                            <div class="skill-icon">
+                                <i class="fab fa-unity"></i>
+                            </div>
+                            <h4>Unity</h4>
+                        </div>
+
+                        <div class="skill-item">
+                            <div class="skill-icon">
+                                <i class="fas fa-video"></i>
+                            </div>
+                            <h4>DaVinci Resolve</h4>
+                        </div>
+
+                        <div class="skill-item">
+                            <div class="skill-icon">
+                                <i class="fab fa-microsoft"></i>
+                            </div>
+                            <h4>Microsoft Suite</h4>
+                        </div>
+
+                        <div class="skill-item">
+                            <div class="skill-icon">
+                                <i class="fas fa-cube"></i>
+                            </div>
+                            <h4>Blender 3D</h4>
+                        </div>
+
+                        <div class="skill-item">
+                            <div class="skill-icon">
+                                <i class="fab fa-adobe"></i>
+                            </div>
+                            <h4>Adobe Creative</h4>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Other Skills Tab -->
+                <div class="tab-content" id="other">
+                    <div class="skills-grid">
+                        <div class="skill-item">
+                            <div class="skill-icon">
+                                <i class="fas fa-cogs"></i>
+                            </div>
+                            <h4>Hardware & Software</h4>
+                        </div>
+
+                        <div class="skill-item">
+                            <div class="skill-icon">
+                                <i class="fas fa-camera"></i>
+                            </div>
+                            <h4>Filming</h4>
+                        </div>
+
+                        <div class="skill-item">
+                            <div class="skill-icon">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <h4>Team Management</h4>
+                        </div>
+
+                        <div class="skill-item">
+                            <div class="skill-icon">
+                                <i class="fas fa-tasks"></i>
+                            </div>
+                            <h4>Project Management</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">What I Offer</span>
+                <h2 class="section-title">Services Offered</h2>
+                <div class="section-line"></div>
+            </div>
+
+            <div class="services-grid">
+                <div class="service-card">
+                    <h3>Web Development</h3>
+                    <p>Creating responsive, modern websites and web applications using the latest technologies and best
+                        practices. From simple landing pages to complex web systems.</p>
+                    <div class="service-features">
+                        <span>Responsive Design</span>
+                        <span>Modern Frameworks</span>
+                        <span>Performance Optimization</span>
+                    </div>
+                    <div class="service-action">
+                        <a href="#contact" class="service-btn">
+                            <span>Get Started</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="service-card">
+                    <h3>System Development</h3>
+                    <p>Building robust desktop applications and management systems tailored to your business needs.
+                        Efficient, scalable, and user-friendly solutions.</p>
+                    <div class="service-features">
+                        <span>Custom Solutions</span>
+                        <span>Database Integration</span>
+                        <span>User Management</span>
+                    </div>
+                    <div class="service-action">
+                        <a href="#contact" class="service-btn">
+                            <span>Get Started</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="service-card">
+                    <h3>App Development</h3>
+                    <p>Developing cross-platform mobile applications that provide seamless user experiences across iOS
+                        and Android devices using modern frameworks.</p>
+                    <div class="service-features">
+                        <span>Cross-Platform</span>
+                        <span>Native Performance</span>
+                        <span>Intuitive UI/UX</span>
+                    </div>
+                    <div class="service-action">
+                        <a href="#contact" class="service-btn">
+                            <span>Get Started</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="service-card">
+                    <h3>Game Development</h3>
+                    <p>Creating engaging games from concept to completion. Specializing in 2D/3D games, interactive
+                        experiences, and educational gaming solutions.</p>
+                    <div class="service-features">
+                        <span>Unity Engine</span>
+                        <span>Game Mechanics</span>
+                        <span>Interactive Design</span>
+                    </div>
+                    <div class="service-action">
+                        <a href="#contact" class="service-btn">
+                            <span>Get Started</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="service-card">
+                    <h3>QA Testing</h3>
+                    <p>Comprehensive quality assurance testing to ensure your applications are bug-free, performant, and
+                        provide excellent user experiences.</p>
+                    <div class="service-features">
+                        <span>Manual Testing</span>
+                        <span>Bug Reporting</span>
+                        <span>Performance Testing</span>
+                    </div>
+                    <div class="service-action">
+                        <a href="#contact" class="service-btn">
+                            <span>Get Started</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="service-card">
+                    <h3>UI/UX Design</h3>
+                    <p>Designing intuitive and visually appealing user interfaces that enhance user experience and drive
+                        engagement through thoughtful design principles.</p>
+                    <div class="service-features">
+                        <span>User Research</span>
+                        <span>Wireframing</span>
+                        <span>Prototyping</span>
+                    </div>
+                    <div class="service-action">
+                        <a href="#contact" class="service-btn">
+                            <span>Get Started</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="services-cta">
+                <div class="cta-content">
+                    <h3>Ready to Start Your Project?</h3>
+                    <p>Let's discuss how I can help bring your ideas to life with professional development services.</p>
+                    <div class="cta-buttons">
+                        <a href="#contact" class="btn btn-primary">
+                            <span>Contact Me</span>
+                            <i class="fas fa-paper-plane"></i>
+                        </a>
+                        <a href="#projects" class="btn btn-outline">
+                            <span>View Portfolio</span>
+                            <i class="fas fa-eye"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">My Work</span>
+                <h2 class="section-title">Featured Projects</h2>
+                <div class="section-line"></div>
+            </div>
+
+            <div class="projects-filter">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="web">Web</button>
+                <button class="filter-btn" data-filter="game">Game</button>
+                <button class="filter-btn" data-filter="system">System</button>
+                <button class="filter-btn" data-filter="media">Media</button>
+            </div>
+
+            <div class="projects-grid">
+                <!-- Project 1 -->
+                <div class="project-card" data-category="game">
+                    <div class="project-thumbnail">
+                        <img src="./image/drop4.png?height=300&width=400" alt="Drop 4 Java Game" class="thumbnail-img">
+                        <div class="project-overlay">
+                            <div class="overlay-content">
+                                <h3>Drop 4 Java Game</h3>
+                                <p>Strategic Java-based game implementation</p>
+                                <button class="view-project-btn" data-project="project1">
+                                    <span>View Project</span>
+                                    <i class="fas fa-arrow-right"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <div class="project-year">2022</div>
+                        <h4>Drop 4 Java Game</h4>
+                        <div class="project-tech">
+                            <span>Java</span>
+                            <span>OOP</span>
+                        </div>
+                    </div>
+
+                    <!-- Hidden Project Gallery Data -->
+                    <div class="project-gallery-data" id="project1-data">
+                        <div class="gallery-title">Drop 4 Java Game</div>
+                        <div class="gallery-year">2022</div>
+                        <div class="gallery-description">A strategic Java-based game implementation showcasing
+                            object-oriented programming principles and game logic development. Players take turns
+                            dropping colored discs into a grid, with the goal of connecting four discs vertically,
+                            horizontally, or diagonally.</div>
+                        <div class="gallery-tech">Java, OOP, Game Logic, UI Design</div>
+                        <div class="gallery-images">
+                            <img src="./image/drop4.png?height=600&width=800" alt="Drop 4 Game Screenshot 1">
+                            <img src="./image/drop4-3.png?height=600&width=800" alt="Drop 4 Game Screenshot 2">
+                            <img src="./image/drop4-1.png?height=600&width=800" alt="Drop 4 Game Screenshot 3">
+                            <img src="./image/drop4-2.png?height=600&width=800" alt="Drop 4 Game Screenshot 4">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="project-card" data-category="system">
+                    <div class="project-thumbnail">
+                        <img src="./image/Transit.png?height=300&width=400" alt="Railway Reservation System"
+                            class="thumbnail-img">
+                        <div class="project-overlay">
+                            <div class="overlay-content">
+                                <h3>Online Railway Reservation System</h3>
+                                <p>WinForms application in C# .NET</p>
+                                <button class="view-project-btn" data-project="project2">
+                                    <span>View Project</span>
+                                    <i class="fas fa-arrow-right"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <div class="project-year">2023</div>
+                        <h4>Railway Reservation System</h4>
+                        <div class="project-tech">
+                            <span>C#</span>
+                            <span>WinForms</span>
+                        </div>
+                    </div>
+
+                    <!-- Hidden Project Gallery Data -->
+                    <div class="project-gallery-data" id="project2-data">
+                        <div class="gallery-title">Online Railway Reservation System</div>
+                        <div class="gallery-year">2023</div>
+                        <div class="gallery-description">Comprehensive WinForms application in C# .NET for railway
+                            ticket booking, seat management, and reservation tracking. The system includes user
+                            authentication, seat selection, payment processing, and ticket generation features.</div>
+                        <div class="gallery-tech">C#, WinForms, .NET, Database, SQL</div>
+                        <div class="gallery-images">
+                            <img src="./image/Transit.png?height=600&width=800" alt="Railway System Screenshot 1">
+                            <img src="./image/Transit1.png?height=600&width=800" alt="Railway System Screenshot 2">
+                            <img src="./image/Transit2.png?height=600&width=800" alt="Railway System Screenshot 3">
+                            <img src="./image/Transit3.png?height=600&width=800" alt="Railway System Screenshot 4">
+                            <img src="./image/Transit4.png?height=600&width=800" alt="Railway System Screenshot 5">
+                            <img src="./image/Transit5.png?height=600&width=800" alt="Railway System Screenshot 6">
+                            <img src="./image/Transit6.png?height=600&width=800" alt="Railway System Screenshot 7">
+                            <img src="./image/Transit7.png?height=600&width=800" alt="Railway System Screenshot 8">
+                            <img src="./image/Transit8.png?height=600&width=800" alt="Railway System Screenshot 9">
+                            <img src="./image/Transit9.png?height=600&width=800" alt="Railway System Screenshot 10">
+                            <img src="./image/Transit10.png?height=600&width=800" alt="Railway System Screenshot 11">
+                            <img src="./image/Transit11.png?height=600&width=800" alt="Railway System Screenshot 12">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="project-card" data-category="media">
+                    <div class="project-thumbnail">
+                        <img src="./image/uncoded.png?height=300&width=400" alt="Cinematography Project"
+                            class="thumbnail-img">
+                        <div class="project-overlay">
+                            <div class="overlay-content">
+                                <h3>Best in Picture & Cinematography</h3>
+                                <p>Award-winning cinematography project</p>
+                                <button class="view-project-btn" data-project="project3">
+                                    <span>View Project</span>
+                                    <i class="fas fa-arrow-right"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <div class="project-year">2024</div>
+                        <h4>UNCODED</h4>
+                        <div class="project-tech">
+                            <span>Video</span>
+                            <span>DaVinci</span>
+                        </div>
+                    </div>
+
+                    <!-- Hidden Project Gallery Data with Video Support -->
+                    <div class="project-gallery-data" id="project3-data">
+                        <div class="gallery-title">Best in Picture & Cinematography</div>
+                        <div class="gallery-year">2024</div>
+                        <div class="gallery-description">Award-winning cinematography project showcasing advanced visual
+                            storytelling techniques and professional video production skills. This project received
+                            recognition for its creative direction, lighting techniques, and compelling narrative.</div>
+                        <div class="gallery-tech">Video Production, DaVinci Resolve, Cinematography, Lighting,
+                            Storytelling</div>
+                        <div class="gallery-images">
+                            <video src="./image/2-5_UNCODED.mp4?height=600&width=800" controls
+                                poster="./image/uncoded.png" alt="Behind the Scenes Video">
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 4 -->
+                <div class="project-card" data-category="system">
+                    <div class="project-thumbnail">
+                        <img src="./image/purplehearts.png?height=300&width=400" alt="Purple Hearts"
+                            class="thumbnail-img">
+                        <div class="project-overlay">
+                            <div class="overlay-content">
+                                <h3>Purple Hearts: E-commerce Website</h3>
+                                <p>Custom e-commerce solution with a focus on user experience</p>
+                                <button class="view-project-btn" data-project="project9">
+                                    <span>View Project</span>
+                                    <i class="fas fa-arrow-right"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <div class="project-year">2025</div>
+                        <h4>Purple Hearts E-commerce Website</h4>
+                        <div class="project-tech">
+                            <span>Figma</span>
+                        </div>
+                    </div>
+
+                    <!-- Hidden Project Gallery Data -->
+                    <div class="project-gallery-data" id="project9-data">
+                        <div class="gallery-title">Purple Hearts: E-commerce Website</div>
+                        <div class="gallery-year">2025</div>
+                        <div class="gallery-description">A visually appealing and highly functional e-commerce website
+                            for Purple
+                            Hearts, offering easy navigation, product listings, and a smooth checkout process. This
+                            website was built
+                            with user experience in mind, including Figma wireframes for the design and layout.</div>
+                        <div class="gallery-tech">Web Development, UI/UX, Figma</div>
+                        <div class="gallery-images">
+                            <img src="./image/purplehearts.png?height=600&width=800" alt="Purple Hearts Wireframe">
+                            <img src="./image/purplehearts1.png?height=600&width=800" alt="Purple Hearts Home Page">
+                            <img src="./image/purplehearts2.png?height=600&width=800" alt="Product Listing">
+                            <img src="./image/purplehearts3.png?height=600&width=800" alt="Checkout Process">
+                            <img src="./image/purplehearts4.png?height=600&width=800" alt="Checkout Process">
+                            <img src="./image/purplehearts5.png?height=600&width=800" alt="Checkout Process">
+                            <img src="./image/purplehearts6.png?height=600&width=800" alt="Checkout Process">
+                            <img src="./image/purplehearts7.png?height=600&width=800" alt="Checkout Process">
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- Project 5 -->
+                <div class="project-card" data-category="game">
+                    <div class="project-thumbnail">
+                        <img src="./image/AnimonDuelist.jpg" alt="Animon Duel Game" class="thumbnail-img">
+                        <div class="project-overlay">
+                            <div class="overlay-content">
+                                <h3>Animon Duel Turn Based Game</h3>
+                                <p>Strategic turn-based battle game</p>
+                                <button class="view-project-btn" data-project="project4">
+                                    <span>View Project</span>
+                                    <i class="fas fa-arrow-right"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <div class="project-year">2024</div>
+                        <h4>Animon Duel Game</h4>
+                        <div class="project-tech">
+                            <span>Unity</span>
+                            <span>C#</span>
+                        </div>
+                    </div>
+
+                    <!-- Hidden Project Gallery Data -->
+                    <div class="project-gallery-data" id="project4-data">
+                        <div class="gallery-title">Animon Duel Turn Based Game</div>
+                        <div class="gallery-year">2024</div>
+                        <div class="gallery-description">Strategic turn-based battle game featuring character
+                            animations, battle mechanics, and engaging gameplay systems. Players collect creatures,
+                            build teams, and battle against opponents in a fantasy world with unique abilities and
+                            evolution paths.</div>
+                        <div class="gallery-tech">Game Development, Unity, C#, Animation, Game Design</div>
+                        <div class="gallery-images">
+                            <img src="./image/AnimonDuelist.jpg?height=600&width=800" alt="Animon Duel Screenshot 1">
+                            <img src="./image/AnimonDuelist1.jpg?height=600&width=800" alt="Animon Duel Screenshot 2">
+                            <img src="./image/AnimonDuelist2.jpg?height=600&width=800" alt="Animon Duel Screenshot 3">
+                            <img src="./image/AnimonDuelist3.jpg?height=600&width=800" alt="Animon Duel Screenshot 4">
+                            <img src="./image/AnimonDuelist4.jpg?height=600&width=800" alt="Animon Duel Screenshot 5">
+                            <img src="./image/AnimonDuelist5.jpg?height=600&width=800" alt="Animon Duel Screenshot 6">
+                            <img src="./image/AnimonDuelist6.jpg?height=600&width=800" alt="Animon Duel Screenshot 7">
+                            <img src="./image/AnimonDuelist7.jpg?height=600&width=800" alt="Animon Duel Screenshot 8">
+                            <img src="./image/AnimonDuelist8.jpg?height=600&width=800" alt="Animon Duel Screenshot 9">
+                            <img src="./image/AnimonDuelist9.jpg?height=600&width=800" alt="Animon Duel Screenshot 10">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 6 -->
+                <div class="project-card" data-category="game">
+                    <div class="project-thumbnail">
+                        <img src="./image/animonkombat.png?height=300&width=400" alt="Animon Kombat Game"
+                            class="thumbnail-img">
+                        <div class="project-overlay">
+                            <div class="overlay-content">
+                                <h3>Animon Kombat One Tap Game</h3>
+                                <p>Fast-paced mobile game</p>
+                                <button class="view-project-btn" data-project="project5">
+                                    <span>View Project</span>
+                                    <i class="fas fa-arrow-right"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <div class="project-year">2024</div>
+                        <h4>Animon Kombat Game</h4>
+                        <div class="project-tech">
+                            <span>Mobile</span>
+                            <span>Unity</span>
+                        </div>
+                    </div>
+
+                    <!-- Hidden Project Gallery Data -->
+                    <div class="project-gallery-data" id="project5-data">
+                        <div class="gallery-title">Animon Kombat One Tap Game</div>
+                        <div class="gallery-year">2024</div>
+                        <div class="gallery-description">Fast-paced one-tap mobile game with engaging combat mechanics
+                            and responsive touch controls. Players control creatures in quick battles where timing and
+                            reflexes determine the outcome. Features include character progression, special abilities,
+                            and competitive leaderboards.</div>
+                        <div class="gallery-tech">Mobile Development, Unity, Touch Controls, Game Design, UI/UX</div>
+                        <div class="gallery-images">
+                            <img src="./image/animonkombat.png?height=600&width=800" alt="Animon Kombat Screenshot 1">
+                            <img src="./image/animonkombat2.png?height=600&width=800" alt="Animon Kombat Screenshot 2">
+                            <img src="./image/animonkombat3.png?height=600&width=800" alt="Animon Kombat Screenshot 3">
+                            <img src="./image/animonkombat4.png?height=600&width=800" alt="Animon Kombat Screenshot 4">
+                            <img src="./image/animonkombat5.png?height=600&width=800" alt="Animon Kombat Screenshot 5">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 7 -->
+                <div class="project-card" data-category="web">
+                    <div class="project-thumbnail">
+                        <img src="./image/pmx.png?height=300&width=400" alt="PMX Business Website"
+                            class="thumbnail-img">
+                        <div class="project-overlay">
+                            <div class="overlay-content">
+                                <h3>PMX 515 Prime Inc. Business Website</h3>
+                                <p>Professional business website</p>
+                                <button class="view-project-btn" data-project="project6">
+                                    <span>View Project</span>
+                                    <i class="fas fa-arrow-right"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <div class="project-year">2024</div>
+                        <h4>PMX Business Website</h4>
+                        <div class="project-tech">
+                            <span>Web</span>
+                            <span>HTML/CSS</span>
+                        </div>
+                    </div>
+
+                    <!-- Hidden Project Gallery Data -->
+                    <div class="project-gallery-data" id="project6-data">
+                        <div class="gallery-title">PMX 515 Prime Inc. Business Website</div>
+                        <div class="gallery-year">2024</div>
+                        <div class="gallery-description">Professional business website featuring modern design,
+                            responsive layout, and comprehensive business information. The site includes company
+                            information, services offered, team profiles, contact forms, and integration with social
+                            media platforms.</div>
+                        <div class="gallery-tech">Web Development, HTML/CSS, JavaScript, Responsive Design, UI/UX</div>
+                        <div class="gallery-images">
+                            <img src="./image/pmx.png?height=600&width=800" alt="PMX Website Homepage">
+                            <img src="./image/pmx1.png?height=600&width=800" alt="PMX Website Services">
+                            <img src="./image/pmx2.png?height=600&width=800" alt="PMX Website About">
+                            <img src="./image/pmx3.png?height=600&width=800" alt="PMX Website Team">
+                            <img src="./image/pmx4.png?height=600&width=800" alt="PMX Website Contact">
+                            <img src="./image/pmx5.png?height=600&width=800" alt="PMX Website Mobile View">
+                            <img src="./image/pmx6.png?height=600&width=800" alt="PMX Website Mobile View">
+                            <img src="./image/pmx7.png?height=600&width=800" alt="PMX Website Mobile View">
+                            <img src="./image/pmx8.png?height=600&width=800" alt="PMX Website Mobile View">
+                            <img src="./image/pmx9.png?height=600&width=800" alt="PMX Website Mobile View">
+                            <img src="./image/pmx10.png?height=600&width=800" alt="PMX Website Mobile View">
+                            <img src="./image/pmx11.png?height=600&width=800" alt="PMX Website Mobile View">
+                            <img src="./image/pmx12.png?height=600&width=800" alt="PMX Website Mobile View">
+                            <img src="./image/pmx13.png?height=600&width=800" alt="PMX Website Mobile View">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 8 -->
+                <div class="project-card" data-category="game">
+                    <div class="project-thumbnail">
+                        <img src="./image/Cursed of the Tides.png?height=300&width=400" alt="TTRPG Project"
+                            class="thumbnail-img">
+                        <div class="project-overlay">
+                            <div class="overlay-content">
+                                <h3>Cursed of the Tides TTRPG</h3>
+                                <p>Tabletop role-playing game</p>
+                                <button class="view-project-btn" data-project="project7">
+                                    <span>View Project</span>
+                                    <i class="fas fa-arrow-right"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <div class="project-year">2025</div>
+                        <h4>Cursed of the Tides TTRPG</h4>
+                        <div class="project-tech">
+                            <span>Game Design</span>
+                            <span>Storytelling</span>
+                        </div>
+                    </div>
+
+                    <!-- Hidden Project Gallery Data -->
+                    <div class="project-gallery-data" id="project7-data">
+                        <div class="gallery-title">Cursed of the Tides TTRPG</div>
+                        <div class="gallery-year">2025</div>
+                        <div class="gallery-description">Complete tabletop role-playing game with custom mechanics,
+                            storytelling elements, and immersive world-building. Set in a fantasy world where the seas
+                            hold ancient curses, players navigate adventures as sailors, pirates, and explorers facing
+                            supernatural threats.</div>
+                        <div class="gallery-tech">Game Design, Storytelling, World Building, Character Design, Rule
+                            Systems</div>
+                        <div class="gallery-images">
+                            <img src="./image/Cursed of the Tides.png?height=600&width=800" alt="TTRPG Rulebook">
+                            <img src="./image/Cursed of the Tides1.png?height=600&width=800"
+                                alt="TTRPG Character Sheets">
+                            <img src="./image/Cursed of the Tides2.png?height=600&width=800" alt="TTRPG World Map">
+                            <img src="./image/Cursed of the Tides3.png?height=600&width=800"
+                                alt="TTRPG Creature Designs">
+                            <img src="./image/Cursed of the Tides4.png?height=600&width=800" alt="TTRPG Game Session">
+                            <img src="./image/Cursed of the Tides5.png?height=600&width=800" alt="TTRPG Game Session">
+                            <img src="./image/Cursed of the Tides6.png?height=600&width=800" alt="TTRPG Game Session">
+                            <img src="./image/Cursed of the Tides7.png?height=600&width=800" alt="TTRPG Game Session">
+                            <img src="./image/Cursed of the Tides8.png?height=600&width=800" alt="TTRPG Game Session">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 9 -->
+                <div class="project-card" data-category="system">
+                    <div class="project-thumbnail">
+                        <img src="./image/inventor-e.png?height=300&width=400" alt="Inventory System"
+                            class="thumbnail-img">
+                        <div class="project-overlay">
+                            <div class="overlay-content">
+                                <h3>Inventor-E: Inventory System</h3>
+                                <p>Comprehensive inventory management</p>
+                                <button class="view-project-btn" data-project="project8">
+                                    <span>View Project</span>
+                                    <i class="fas fa-arrow-right"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <div class="project-year">2025</div>
+                        <h4>Inventor-E System</h4>
+                        <div class="project-tech">
+                            <span>PHP</span>
+                            <span>MySQL</span>
+                        </div>
+                    </div>
+
+                    <!-- Hidden Project Gallery Data -->
+                    <div class="project-gallery-data" id="project8-data">
+                        <div class="gallery-title">Inventor-E: Inventory System</div>
+                        <div class="gallery-year">2025</div>
+                        <div class="gallery-description">Comprehensive inventory management system with booking
+                            capabilities, equipment tracking, and advanced reporting features. The system includes user
+                            roles, real-time inventory updates, barcode scanning, and analytics dashboards for business
+                            intelligence.</div>
+                        <div class="gallery-tech">System Development, Database, PHP, MySQL, JavaScript, UI/UX</div>
+                        <div class="gallery-images">
+                            <img src="./image/inventor-e.png?height=600&width=800" alt="Inventory Dashboard">
+                            <img src="./image/inventor-e1.png?height=600&width=800" alt="Inventory Dashboard">
+                            <img src="./image/inventor-e2.png?height=600&width=800" alt="Inventory Items List">
+                            <img src="./image/inventor-e3.png?height=600&width=800" alt="Booking Management">
+                            <img src="./image/inventor-e4.png?height=600&width=800" alt="Equipment Tracking">
+                            <img src="./image/inventor-e5.png?height=600&width=800" alt="Reports and Analytics">
+                            <img src="./image/inventor-e6.png?height=600&width=800" alt="User Management">
+                            <img src="./image/inventor-e7.png?height=600&width=800" alt="User Management">
+                            <img src="./image/inventor-e8.png?height=600&width=800" alt="User Management">
+                            <img src="./image/inventor-e9.jpg?height=600&width=800" alt="User Management">
+                            <img src="./image/inventor-e10.jpg?height=600&width=800" alt="User Management">
+                            <img src="./image/inventor-e11.jpg?height=600&width=800" alt="User Management">
+                            <img src="./image/inventor-e12.jpg?height=600&width=800" alt="User Management">
+                            <img src="./image/inventor-e13.jpg?height=600&width=800" alt="User Management">
+                            <img src="./image/inventor-e14.jpg?height=600&width=800" alt="User Management">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Gallery Modal -->
+    <div class="project-modal">
+        <div class="modal-overlay"></div>
+        <div class="modal-container">
+            <button class="modal-close">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 class="modal-title">Project Title</h2>
+                    <div class="modal-year">2024</div>
+                </div>
+                <div class="modal-gallery">
+                    <div class="gallery-main">
+                        <button class="gallery-nav prev">
+                            <i class="fas fa-chevron-left"></i>
+                        </button>
+                        <div class="gallery-image-container">
+                            <img src="/placeholder.svg" alt="Project Image" class="gallery-main-image">
+                            <video src="/placeholder.svg" controls class="gallery-main-video" style="display: none;">
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+                        <button class="gallery-nav next">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                    </div>
+                    <div class="gallery-thumbnails"></div>
+                </div>
+                <div class="modal-details">
+                    <div class="modal-description"></div>
+                    <div class="modal-tech-stack">
+                        <h4>Technologies Used:</h4>
+                        <div class="modal-tech-tags"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Experience Section -->
+    <section id="experience" class="experience">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">My Journey</span>
+                <h2 class="section-title">Experience & Education</h2>
+                <div class="section-line"></div>
+            </div>
+
+            <div class="experience-timeline">
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-date">
+                        <span>2024</span>
+                    </div>
+                    <div class="timeline-content">
+                        <h3>IT Support (Part-time)</h3>
+                        <h4>PMX 515 Prime Inc.</h4>
+                        <p>Provided comprehensive technical support and assistance for IT-related issues, system
+                            maintenance, and user support. Gained valuable experience in troubleshooting and customer
+                            service.</p>
+                        <div class="timeline-tags">
+                            <span>Technical Support</span>
+                            <span>System Maintenance</span>
+                            <span>Customer Service</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-date">
+                        <span>NTSP</span>
+                    </div>
+                    <div class="timeline-content">
+                        <h3>Work Immersion (90 hours)</h3>
+                        <h4>Barangay Office</h4>
+                        <p>Focused on encoding and data entry tasks at the Barangay office, gaining practical experience
+                            in data management, administrative processes, and government operations.</p>
+                        <div class="timeline-tags">
+                            <span>Data Entry</span>
+                            <span>Data Management</span>
+                            <span>Administrative Tasks</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="seminars-section">
+                <h3>Professional Development / Seminars</h3>
+                <div class="seminars-grid">
+                    <div class="seminar-card">
+                        <div class="seminar-date">April 20, 2024</div>
+                        <h4>Unlocking Innovation Navigating Digital Transformation</h4>
+                        <p>Explored cutting-edge digital transformation strategies and innovation methodologies in
+                            today's rapidly evolving technological landscape.</p>
+                    </div>
+
+                    <div class="seminar-card">
+                        <div class="seminar-date">April 20, 2024</div>
+                        <h4>IT Developer Life Hacks: Working Smart as a Computer Programmer</h4>
+                        <p>Learned essential productivity techniques and best practices for efficient software
+                            development and programming workflows.</p>
+                    </div>
+
+                    <div class="seminar-card">
+                        <div class="seminar-date">April 21, 2024</div>
+                        <h4>Fortifying the Future: Navigating the Landscape of Cybersecurity essentials</h4>
+                        <p>Explored essential cybersecurity practices to safeguard digital infrastructures, protect
+                            sensitive data, and mitigate
+                            emerging cyber threats.</p>
+                    </div>
+
+                    <div class="seminar-card">
+                        <div class="seminar-date">April 21, 2024</div>
+                        <h4>Cybersecurity in the Real World: Protecting Yourself and Your Future Career</h4>
+                        <p>Learned practical strategies to safeguard personal and professional data, ensuring resilience
+                            against cyber threats
+                            while enhancing career opportunities in the growing cybersecurity field.</p>
+                    </div>
+
+                    <div class="seminar-card">
+                        <div class="seminar-date">April 24, 2024</div>
+                        <h4>Beyond the Clouds: Comprehensive Cloud Computing Strategies</h4>
+                        <p>Gained insights into advanced cloud computing strategies and their practical applications in
+                            modern business environments.</p>
+                    </div>
+
+                    <div class="seminar-card">
+                        <div class="seminar-date">April 24, 2024</div>
+                        <h4>EnGamed: Game Development Introduction to Game Engines</h4>
+                        <p>Explored fundamental concepts of game development and hands-on experience with various game
+                            engines and development tools.</p>
+                    </div>
+
+                    <div class="seminar-card">
+                        <div class="seminar-date">April 24, 2024</div>
+                        <h4>Unleashing the Power of AI and Machine Learning: Transforming Industries and Driving
+                            Innovation</h4>
+                        <p>Explored how AI and machine learning are revolutionizing industries and fostering innovation.
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- OJT (On-the-Job Training) Section -->
+    <section id="ojt" class="ojt">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">On-the-Job Training</span>
+                <h2 class="section-title">OJT Experience</h2>
+                <div class="section-line"></div>
+                <br>
+                <p>Prople BPO Inc. is a business process outsourcing company based in Mandaluyong City, Metro Manila, that specializes in delivering integrated business solutions powered by process, people, and technology.</p>
+            </div>
+
+            <div class="ojt-content">
+                <div class="ojt-slideshow">
+                    <div class="slideshow-container">
+                        <div class="slideshow-slide active">
+                            <img src="./image/1.jfif?height=500&width=800" alt="OJT Day 1">
+                            <div class="slide-description">
+                                <h3>Week 1: Orientation & IT Environment Familiarization</h3>
+                                <p>Participated in company orientation and IT department briefing. Learned company
+                                    policies, IT security
+                                    guidelines, and basic infrastructure setup. Observed daily IT operations,
+                                    workstation standards, and support
+                                    workflows.</p>
+                            </div>
+                        </div>
+
+                        <div class="slideshow-slide">
+                            <img src="./image/2.jfif?height=500&width=800" alt="OJT IT Support">
+                            <div class="slide-description">
+                                <h3>Week 2–4: IT Support & System Operations</h3>
+                                <p>Handled basic IT support tasks such as Active Directory user account creation,
+                                    password resets, laptop setup,
+                                    and troubleshooting end-user hardware and software issues. Performed daily antivirus
+                                    and wireless network
+                                    status checks.</p>
+                            </div>
+                        </div>
+
+                        <div class="slideshow-slide">
+                            <img src="./image/3.jfif?height=500&width=800" alt="OJT Networking">
+                            <div class="slide-description">
+                                <h3>Week 5–8: Networking & Infrastructure Tasks</h3>
+                                <p>Assisted in network-related activities including connecting wall LAN ports to the
+                                    data center, understanding
+                                    MDF and IDF layouts, and creating network infrastructure diagrams. Learned basic
+                                    network analysis using Nmap
+                                    and Wireshark.</p>
+                            </div>
+                        </div>
+
+                        <div class="slideshow-slide">
+                            <img src="./image/4.jfif?height=500&width=800" alt="OJT Cybersecurity">
+                            <div class="slide-description">
+                                <h3>Week 9–12: Cybersecurity Exposure & Professional Development</h3>
+                                <p>Gained exposure to cybersecurity concepts through seminars and workshops powered by
+                                    Sophos, Rubrik, and
+                                    Microsoft. Completed Google Workspace Admin and End User Training, assisted in audit
+                                    checks, and
+                                    strengthened documentation and compliance skills.</p>
+                            </div>
+                        </div>
+
+
+                        <!-- Slideshow Navigation -->
+                        <button class="slideshow-nav prev-slide">
+                            <i class="fas fa-chevron-left"></i>
+                        </button>
+                        <button class="slideshow-nav next-slide">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+
+                        <!-- Slideshow Indicators -->
+                        <div class="slideshow-indicators">
+                            <span class="indicator active" data-slide="0"></span>
+                            <span class="indicator" data-slide="1"></span>
+                            <span class="indicator" data-slide="2"></span>
+                            <span class="indicator" data-slide="3"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="ojt-details">
+                    <div class="ojt-info-card">
+                        <div class="ojt-info-icon">
+                            <i class="fas fa-building"></i>
+                        </div>
+                        <h3>Company</h3>
+                        <p>Prople BPO Inc.</p>
+                    </div>
+
+                    <div class="ojt-info-card">
+                        <div class="ojt-info-icon">
+                            <i class="fas fa-calendar-alt"></i>
+                        </div>
+                        <h3>Duration</h3>
+                        <p>486 Hours</p>
+                    </div>
+
+                    <div class="ojt-info-card">
+                        <div class="ojt-info-icon">
+                            <i class="fas fa-user-tie"></i>
+                        </div>
+                        <h3>Position</h3>
+                        <p>IT Infrastructures</p>
+                    </div>
+
+                    <div class="ojt-achievements">
+                        <h3>Key Achievements</h3>
+                        <ul>
+                            <li><i class="fas fa-check-circle"></i> Created Network Infrastructure Diagrams for MDF and
+                                IDF.</li>
+                            <li><i class="fas fa-check-circle"></i> Created user accounts and reset passwords using
+                                Active Directory</li>
+                            <li><i class="fas fa-check-circle"></i> Troubleshot and resolved end-user technical issues
+                            </li>
+                            <li><i class="fas fa-check-circle"></i> Performed daily tasks, including verifying antivirus
+                                security status and compliance</li>
+                            <li><i class="fas fa-check-circle"></i> Set up and configured laptops for new employees
+                                within the company domain.</li>
+                            <li><i class="fas fa-check-circle"></i> Learned and applied Nmap, Wireshark, and basic
+                                penetration testing concepts.</li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interests Section -->
+    <section id="interests" class="interests">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">My Passions</span>
+                <h2 class="section-title">Areas of Interest</h2>
+                <div class="section-line"></div>
+            </div>
+
+            <div class="interests-grid">
+                <div class="interest-card">
+                    <div class="interest-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Cyber Security</h3>
+                    <p>Passionate about protecting digital assets and understanding the latest security threats and
+                        defense mechanisms.</p>
+                </div>
+
+                <div class="interest-card">
+                    <div class="interest-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3>Artificial Intelligence</h3>
+                    <p>Fascinated by AI's potential to transform industries and solve complex problems through
+                        intelligent automation.</p>
+                </div>
+
+                <div class="interest-card">
+                    <div class="interest-icon">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <h3>Machine Learning</h3>
+                    <p>Exploring algorithms and models that enable computers to learn and make decisions from data
+                        patterns.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Get In Touch</span>
+                <h2 class="section-title">Contact Me</h2>
+                <div class="section-line"></div>
+            </div>
+
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <h3>Email</h3>
+                        <p>edwardmontano.dev@gmail.com</p>
+                        <a href="mailto:edwardmontano.dev@gmail.com" class="contact-link">Send Email</a>
+                    </div>
+
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <h3>Phone</h3>
+                        <p>09512881934</p>
+                        <a href="tel:09512881934" class="contact-link">Call Now</a>
+                    </div>
+
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <h3>Location</h3>
+                        <p>Malabon, Metro Manila, 1470</p>
+                        <a href="#" class="contact-link">View Map</a>
+                    </div>
+                </div>
+
+                <div class="contact-form-container">
+                    <form class="contact-form" action="https://api.web3forms.com/submit" method="POST">
+                        <input type="hidden" name="access_key" value="7205eaa3-1e05-4037-9dd4-bda1c855b29a" />
+                        <input type="hidden" name="subject" value="New Contact Form Submission from codebyedward.com" />
+                        <input type="hidden" name="from_name" value="codebyedward.com" />
+
+                        <div class="form-group">
+                            <input type="text" id="name" name="name" required>
+                            <label for="name">Your Name</label>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="email" name="email" required>
+                            <label for="email">Your Email</label>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" id="phone" name="phone">
+                            <label for="phone">Phone (Optional)</label>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" id="subject" name="message_subject" required>
+                            <label for="subject">Subject</label>
+                        </div>
+                        <div class="form-group">
+                            <textarea id="message" name="message" rows="5" required></textarea>
+                            <label for="message">Your Message</label>
+                        </div>
+                        <button type="submit" class="btn btn-primary">
+                            <span>Send Message</span>
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                        <!-- Honeypot Spam Protection -->
+                        <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2024 Edward Jemuel G. Montano. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
