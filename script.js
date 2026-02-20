@@ -1104,3 +1104,35 @@ window.addEventListener(
     // Scroll-dependent functions are already optimized above
   }, 16),
 ) // ~60fps
+
+// Certification PDF Click Handler
+document.addEventListener("DOMContentLoaded", () => {
+  const certificationCards = document.querySelectorAll(".certification-card[data-pdf]")
+
+  certificationCards.forEach((card) => {
+    card.addEventListener("click", (e) => {
+      // Prevent default only if clicking on the card itself, not an internal link
+      if (e.target.closest("a")) return
+
+      const pdfFile = card.getAttribute("data-pdf")
+      if (pdfFile) {
+        // Open PDF in a new tab
+        window.open(pdfFile, "_blank")
+      }
+    })
+
+    // Add keyboard accessibility - Enter key to open PDF
+    card.addEventListener("keypress", (e) => {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault()
+        const pdfFile = card.getAttribute("data-pdf")
+        if (pdfFile) {
+          window.open(pdfFile, "_blank")
+        }
+      }
+    })
+
+    // Make cards focusable for keyboard navigation
+    card.setAttribute("tabindex", "0")
+  })
+})
