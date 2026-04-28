@@ -1105,7 +1105,7 @@ window.addEventListener(
   }, 16),
 ) // ~60fps
 
-// Certification PDF Click Handler
+/* Certification PDF Click Handler
 document.addEventListener("DOMContentLoaded", () => {
   const certificationCards = document.querySelectorAll(".certification-card[data-pdf]")
 
@@ -1136,3 +1136,4 @@ document.addEventListener("DOMContentLoaded", () => {
     card.setAttribute("tabindex", "0")
   })
 })
+*/
