@@ -1,4 +1,30 @@
 // =====================
+// PROFILE AVATAR LIGHTBOX
+// =====================
+const profileAvatar = document.getElementById('profileAvatar');
+const avatarLightbox = document.getElementById('avatarLightbox');
+const avatarBackdrop = document.getElementById('avatarBackdrop');
+const avatarClose = document.getElementById('avatarClose');
+
+function openLightbox() {
+    avatarLightbox.classList.add('open');
+    document.body.style.overflow = 'hidden';
+}
+
+function closeLightbox() {
+    avatarLightbox.classList.remove('open');
+    document.body.style.overflow = '';
+}
+
+if (profileAvatar) profileAvatar.addEventListener('click', openLightbox);
+if (avatarBackdrop) avatarBackdrop.addEventListener('click', closeLightbox);
+if (avatarClose) avatarClose.addEventListener('click', closeLightbox);
+
+document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') closeLightbox();
+});
+
+// =====================
 // DARK MODE TOGGLE
 // =====================
 const themeToggle = document.getElementById('themeToggle');

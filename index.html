@@ -21,7 +21,17 @@
         <div class="container">
             <div class="profile-header">
                 <div class="profile-left">
-                    <img src="./image/Montano.jpg" alt="Edward Montano" class="profile-avatar">
+                    <img src="./image/me.jpg" alt="Edward Montano" class="profile-avatar" id="profileAvatar"
+                        title="Click to enlarge">
+                </div>
+
+                <!-- Lightbox -->
+                <div class="avatar-lightbox" id="avatarLightbox" aria-modal="true" role="dialog">
+                    <div class="avatar-lightbox-backdrop" id="avatarBackdrop"></div>
+                    <div class="avatar-lightbox-content">
+                        <button class="avatar-lightbox-close" id="avatarClose" aria-label="Close">&times;</button>
+                        <img src="./image/me.jpg" alt="Edward Montano">
+                    </div>
                 </div>
                 <div class="profile-center">
                     <div class="profile-name-row">
@@ -610,19 +620,19 @@
                             <img src="./image/6.jpg" loading="lazy">
                         </div>
                         <div class="carousel-slide">
-                            <img src="./image/5.jpg"loading="lazy">
+                            <img src="./image/5.jpg" loading="lazy">
                         </div>
                         <div class="carousel-slide">
-                            <img src="./image/4.jfif"  loading="lazy">
+                            <img src="./image/4.jfif" loading="lazy">
                         </div>
                         <div class="carousel-slide">
-                            <img src="./image/3.jfif"  loading="lazy">
+                            <img src="./image/3.jfif" loading="lazy">
                         </div>
                         <div class="carousel-slide">
                             <img src="./image/2.jfif" loading="lazy">
                         </div>
                         <div class="carousel-slide">
-                            <img src="./image/1.jfif"  loading="lazy">
+                            <img src="./image/1.jfif" loading="lazy">
                         </div>
                         <div class="carousel-slide">
                             <img src="./image/7.jpg" loading="lazy">

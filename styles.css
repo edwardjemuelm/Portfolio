@@ -85,9 +85,9 @@ a {
 }
 
 .profile-avatar {
-    width: 88px;
-    height: 88px;
-    border-radius: 50%;
+    width: 130px;
+    height: 130px;
+    border-radius: 8px;
     object-fit: cover;
     border: 2px solid var(--border);
     flex-shrink: 0;
@@ -828,6 +828,95 @@ a {
 }
 
 /* =====================
+   AVATAR LIGHTBOX
+   ===================== */
+.profile-avatar {
+    cursor: zoom-in;
+}
+
+.avatar-lightbox {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+}
+
+.avatar-lightbox.open {
+    display: flex;
+}
+
+.avatar-lightbox-backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.75);
+    backdrop-filter: blur(4px);
+    animation: lbFadeIn 0.2s ease;
+}
+
+.avatar-lightbox-content {
+    position: relative;
+    z-index: 1;
+    animation: lbZoomIn 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.avatar-lightbox-content img {
+    display: block;
+    max-width: 90vw;
+    max-height: 85vh;
+    border-radius: 12px;
+    box-shadow: 0 24px 80px rgba(0, 0, 0, 0.5);
+    object-fit: contain;
+}
+
+.avatar-lightbox-close {
+    position: absolute;
+    top: -14px;
+    right: -14px;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: var(--text-primary);
+    color: var(--bg);
+    border: none;
+    font-size: 18px;
+    line-height: 1;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+    transition: opacity 0.15s;
+}
+
+.avatar-lightbox-close:hover {
+    opacity: 0.75;
+}
+
+@keyframes lbFadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes lbZoomIn {
+    from {
+        transform: scale(0.75);
+        opacity: 0;
+    }
+
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* =====================
    DARK MODE TOGGLE
    ===================== */
 .theme-toggle {
@@ -1008,8 +1097,8 @@ a {
 
 @media (max-width: 500px) {
     .profile-avatar {
-        width: 72px;
-        height: 72px;
+        width: 100px;
+        height: 100px;
     }
 
     .profile-actions {
