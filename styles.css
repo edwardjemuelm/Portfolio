@@ -23,6 +23,25 @@
     --radius: 8px;
     --radius-lg: 12px;
     --font: 'DM Sans', 'Inter', -apple-system, sans-serif;
+    --btn-primary-bg: #111111;
+    --btn-primary-color: #ffffff;
+    --btn-primary-border: #111111;
+}
+
+[data-theme="dark"] {
+    --bg: #0f0f0f;
+    --bg-secondary: #1a1a1a;
+    --border: #2a2a2a;
+    --border-light: #222222;
+    --text-primary: #f0f0f0;
+    --text-secondary: #a0a0a0;
+    --text-muted: #666666;
+    --accent-blue: #11c79a;
+    --tag-bg: #1e1e1e;
+    --tag-border: #2d2d2d;
+    --btn-primary-bg: #f0f0f0;
+    --btn-primary-color: #111111;
+    --btn-primary-border: #f0f0f0;
 }
 
 html {
@@ -43,105 +62,6 @@ a {
     color: inherit;
 }
 
-/* =====================
-   NAVBAR
-   ===================== */
-.navbar {
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(8px);
-    border-bottom: 1px solid var(--border);
-}
-
-.nav-inner {
-    max-width: 1160px;
-    margin: 0 auto;
-    padding: 0 24px;
-    height: 56px;
-    display: flex;
-    align-items: center;
-    gap: 32px;
-}
-
-.nav-brand {
-    font-weight: 700;
-    font-size: 15px;
-    letter-spacing: -0.3px;
-    color: var(--text-primary);
-    white-space: nowrap;
-}
-
-.nav-brand span {
-    color: var(--accent-blue);
-}
-
-.nav-links {
-    display: flex;
-    list-style: none;
-    gap: 4px;
-    margin-left: auto;
-}
-
-.nav-link {
-    padding: 6px 12px;
-    font-size: 14px;
-    font-weight: 500;
-    color: var(--text-secondary);
-    border-radius: 6px;
-    transition: color 0.15s, background 0.15s;
-}
-
-.nav-link:hover,
-.nav-link.active {
-    color: var(--text-primary);
-    background: var(--bg-secondary);
-}
-
-.hamburger {
-    display: none;
-    flex-direction: column;
-    gap: 5px;
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 4px;
-    margin-left: auto;
-}
-
-.hamburger span {
-    display: block;
-    width: 22px;
-    height: 2px;
-    background: var(--text-primary);
-    border-radius: 2px;
-    transition: all 0.2s;
-}
-
-.mobile-menu {
-    display: none;
-    flex-direction: column;
-    border-top: 1px solid var(--border);
-    background: var(--bg);
-}
-
-.mobile-menu.open {
-    display: flex;
-}
-
-.m-link {
-    padding: 13px 24px;
-    font-size: 15px;
-    font-weight: 500;
-    color: var(--text-secondary);
-    border-bottom: 1px solid var(--border-light);
-    transition: color 0.15s;
-}
-
-.m-link:hover {
-    color: var(--text-primary);
-}
 
 /* =====================
    PROFILE HEADER
@@ -218,12 +138,12 @@ a {
     align-items: center;
     gap: 7px;
     padding: 9px 18px;
-    background: var(--text-primary);
-    color: #fff;
+    background: var(--btn-primary-bg);
+    color: var(--btn-primary-color);
     font-size: 13.5px;
     font-weight: 600;
     border-radius: var(--radius);
-    border: 1.5px solid var(--text-primary);
+    border: 1.5px solid var(--btn-primary-border);
     cursor: pointer;
     transition: opacity 0.15s;
     font-family: var(--font);
@@ -391,9 +311,9 @@ a {
 
 .pill.active,
 .pill:hover {
-    background: var(--text-primary);
-    border-color: var(--text-primary);
-    color: #fff;
+    background: var(--btn-primary-bg);
+    border-color: var(--btn-primary-bg);
+    color: var(--btn-primary-color);
 }
 
 .tab-panel {
@@ -463,9 +383,9 @@ a {
 
 .filter-pill.active,
 .filter-pill:hover {
-    background: var(--text-primary);
-    border-color: var(--text-primary);
-    color: #fff;
+    background: var(--btn-primary-bg);
+    border-color: var(--btn-primary-bg);
+    color: var(--btn-primary-color);
 }
 
 .projects-grid {
@@ -908,6 +828,115 @@ a {
 }
 
 /* =====================
+   DARK MODE TOGGLE
+   ===================== */
+.theme-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 34px;
+    height: 34px;
+    border-radius: 8px;
+    border: 1.5px solid var(--border);
+    background: transparent;
+    color: var(--text-secondary);
+    cursor: pointer;
+    font-size: 15px;
+    transition: color 0.15s, background 0.15s, border-color 0.15s;
+    flex-shrink: 0;
+}
+
+.theme-toggle:hover {
+    color: var(--text-primary);
+    background: var(--bg-secondary);
+}
+
+/* =====================
+   GALLERY CAROUSEL
+   ===================== */
+.carousel-outer {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.carousel-track-container {
+    flex: 1;
+    overflow: hidden;
+}
+
+.carousel-track {
+    display: flex;
+    gap: 10px;
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    will-change: transform;
+}
+
+.carousel-slide {
+    flex: 0 0 calc((100% - 40px) / 5);
+    aspect-ratio: 4 / 3;
+    border-radius: var(--radius);
+    overflow: hidden;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border);
+}
+
+.carousel-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.35s ease;
+}
+
+.carousel-slide:hover img {
+    transform: scale(1.05);
+}
+
+.carousel-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    border: 1.5px solid var(--border);
+    background: var(--bg);
+    color: var(--text-secondary);
+    cursor: pointer;
+    font-size: 13px;
+    transition: background 0.15s, color 0.15s, border-color 0.15s;
+    flex-shrink: 0;
+    font-family: var(--font);
+}
+
+.carousel-btn:hover {
+    background: var(--btn-primary-bg);
+    color: var(--btn-primary-color);
+    border-color: var(--btn-primary-bg);
+}
+
+.carousel-btn:disabled {
+    opacity: 0.25;
+    cursor: default;
+    pointer-events: none;
+}
+
+
+/* =====================
+   GALLERY FULL WIDTH
+   ===================== */
+.gallery-full {
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    padding: 28px 0;
+}
+
+.gallery-full .section-title {
+    margin-bottom: 16px;
+}
+
+/* =====================
    FOOTER
    ===================== */
 .footer {
@@ -940,14 +969,6 @@ a {
 }
 
 @media (max-width: 700px) {
-    .nav-links {
-        display: none;
-    }
-
-    .hamburger {
-        display: flex;
-    }
-
     .profile-header {
         flex-wrap: wrap;
     }

@@ -15,33 +15,6 @@
 
 <body>
 
-    <!-- Navigation -->
-    <nav class="navbar">
-        <div class="nav-inner">
-            <a href="#home" class="nav-brand">codebyedward<span>.com</span></a>
-            <ul class="nav-links">
-                <li><a href="#home" class="nav-link active">Home</a></li>
-                <li><a href="#about" class="nav-link">About</a></li>
-                <li><a href="#skills" class="nav-link">Skills</a></li>
-                <li><a href="#projects" class="nav-link">Projects</a></li>
-                <li><a href="#certifications" class="nav-link">Certifications</a></li>
-                <li><a href="#experience" class="nav-link">Experience</a></li>
-                <li><a href="#contact" class="nav-link">Contact</a></li>
-            </ul>
-            <button class="hamburger" id="hamburger" aria-label="Toggle menu">
-                <span></span><span></span><span></span>
-            </button>
-        </div>
-        <div class="mobile-menu" id="mobileMenu">
-            <a href="#home" class="m-link">Home</a>
-            <a href="#about" class="m-link">About</a>
-            <a href="#skills" class="m-link">Skills</a>
-            <a href="#projects" class="m-link">Projects</a>
-            <a href="#certifications" class="m-link">Certifications</a>
-            <a href="#experience" class="m-link">Experience</a>
-            <a href="#contact" class="m-link">Contact</a>
-        </div>
-    </nav>
 
     <!-- Hero / Profile Header -->
     <section id="home" class="profile-section">
@@ -53,16 +26,20 @@
                 <div class="profile-center">
                     <div class="profile-name-row">
                         <h1 class="profile-name">Edward Jemuel G. Montano</h1>
+                        <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+                            <i class="fas fa-moon"></i>
+                        </button>
                     </div>
                     <p class="profile-location"><i class="fas fa-map-marker-alt"></i> Malabon, Metro Manila, Philippines
                     </p>
-                    <p class="profile-tagline">SOC Analyst &nbsp;/&nbsp; Cybersecurity Associate &nbsp;/&nbsp; IT
+                    <p class="profile-tagline">Aspiring SOC Analyst &nbsp;/&nbsp; Cybersecurity Associate &nbsp;/&nbsp;
+                        IT
                         Professional</p>
                     <div class="profile-actions">
                         <a href="#contact" class="btn-primary"><i class="fas fa-envelope"></i> Contact Me</a>
                         <a href="mailto:edwardjemuelm@gmail.com" class="btn-ghost"><i class="fas fa-paper-plane"></i>
                             Send Email</a>
-                       <!-- <a href="https://edwardjemuelm.github.io/Portfolio/" class="btn-ghost" target="_blank"><i
+                        <!-- <a href="https://edwardjemuelm.github.io/Portfolio/" class="btn-ghost" target="_blank"><i
                                 class="fas fa-globe"></i> Portfolio</a>-->
                     </div>
                 </div>
@@ -385,82 +362,6 @@
                 </div>
             </section>
 
-            <!-- Certifications -->
-            <section id="certifications" class="card-section">
-                <h2 class="section-title">Certifications & Training</h2>
-                <div class="cert-list">
-                    <div class="cert-row">
-                        <span class="cert-name">Junior Cybersecurity Analyst</span>
-                        <span class="cert-issuer">CISCO</span>
-                    </div>
-                    <div class="cert-row">
-                        <span class="cert-name">Introduction to Cybersecurity</span>
-                        <span class="cert-issuer">CISCO</span>
-                    </div>
-                    <div class="cert-row">
-                        <span class="cert-name">SOC Level 1</span>
-                        <span class="cert-issuer">TryHackMe</span>
-                    </div>
-                    <div class="cert-row">
-                        <span class="cert-name">SOC Level 2</span>
-                        <span class="cert-issuer">TryHackMe</span>
-                    </div>
-                    <div class="cert-row">
-                        <span class="cert-name">Jr. Penetration Tester</span>
-                        <span class="cert-issuer">TryHackMe</span>
-                    </div>
-                    <div class="cert-row">
-                        <span class="cert-name">Cyber Security 101</span>
-                        <span class="cert-issuer">TryHackMe</span>
-                    </div>
-                    <div class="cert-row">
-                        <span class="cert-name">Google Workspace Admin Training</span>
-                        <span class="cert-issuer">Globe Business</span>
-                    </div>
-                    <div class="cert-row">
-                        <span class="cert-name">Google Workspace End User Training</span>
-                        <span class="cert-issuer">Globe Business</span>
-                    </div>
-                    <div class="cert-row">
-                        <span class="cert-name">Ignite the Power of Cybersecurity with Sophos</span>
-                        <span class="cert-issuer">Micro Pacific</span>
-                    </div>
-                    <div class="cert-row">
-                        <span class="cert-name">Data Protection & Cloud Security Workshop</span>
-                        <span class="cert-issuer">Rubrik & Microsoft</span>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Interests -->
-            <section id="interests" class="card-section">
-                <h2 class="section-title">Areas of Interest</h2>
-                <div class="interests-grid">
-                    <div class="interest-item">
-                        <div class="interest-icon"><i class="fas fa-shield-alt"></i></div>
-                        <div>
-                            <h4>Cyber Security</h4>
-                            <p>Protecting digital assets and understanding the latest security threats and defense
-                                mechanisms.</p>
-                        </div>
-                    </div>
-                    <div class="interest-item">
-                        <div class="interest-icon"><i class="fas fa-brain"></i></div>
-                        <div>
-                            <h4>Artificial Intelligence</h4>
-                            <p>Fascinated by AI's potential to transform industries through intelligent automation.</p>
-                        </div>
-                    </div>
-                    <div class="interest-item">
-                        <div class="interest-icon"><i class="fas fa-robot"></i></div>
-                        <div>
-                            <h4>Machine Learning</h4>
-                            <p>Exploring algorithms that enable computers to learn and make decisions from data.</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
         </div>
 
         <!-- Right Column -->
@@ -521,6 +422,53 @@
                 </div>
             </section>
 
+            <!-- Certifications -->
+            <section id="certifications" class="card-section">
+                <h2 class="section-title">Certifications & Training</h2>
+                <div class="cert-list">
+                    <div class="cert-row">
+                        <span class="cert-name">Junior Cybersecurity Analyst</span>
+                        <span class="cert-issuer">CISCO</span>
+                    </div>
+                    <div class="cert-row">
+                        <span class="cert-name">Introduction to Cybersecurity</span>
+                        <span class="cert-issuer">CISCO</span>
+                    </div>
+                    <div class="cert-row">
+                        <span class="cert-name">SOC Level 1</span>
+                        <span class="cert-issuer">TryHackMe</span>
+                    </div>
+                    <div class="cert-row">
+                        <span class="cert-name">SOC Level 2</span>
+                        <span class="cert-issuer">TryHackMe</span>
+                    </div>
+                    <div class="cert-row">
+                        <span class="cert-name">Jr. Penetration Tester</span>
+                        <span class="cert-issuer">TryHackMe</span>
+                    </div>
+                    <div class="cert-row">
+                        <span class="cert-name">Cyber Security 101</span>
+                        <span class="cert-issuer">TryHackMe</span>
+                    </div>
+                    <div class="cert-row">
+                        <span class="cert-name">Google Workspace Admin Training</span>
+                        <span class="cert-issuer">Globe Business</span>
+                    </div>
+                    <div class="cert-row">
+                        <span class="cert-name">Google Workspace End User Training</span>
+                        <span class="cert-issuer">Globe Business</span>
+                    </div>
+                    <div class="cert-row">
+                        <span class="cert-name">Ignite the Power of Cybersecurity with Sophos</span>
+                        <span class="cert-issuer">Micro Pacific</span>
+                    </div>
+                    <div class="cert-row">
+                        <span class="cert-name">Data Protection & Cloud Security Workshop</span>
+                        <span class="cert-issuer">Rubrik & Microsoft</span>
+                    </div>
+                </div>
+            </section>
+
             <!-- Education -->
             <section class="card-section">
                 <h2 class="section-title">Education</h2>
@@ -578,7 +526,7 @@
                 </div>
             </section>
 
-            <!-- Contact -->
+            <!-- Contact 
             <section id="contact" class="card-section">
                 <h2 class="section-title">Get in Touch</h2>
                 <p class="contact-desc">Available for cybersecurity roles, IT support, and software development
@@ -614,14 +562,84 @@
                     <input type="checkbox" name="botcheck" style="display:none">
                 </form>
             </section>
+-->
+
+            <!-- Interests -->
+            <section id="interests" class="card-section">
+                <h2 class="section-title">Areas of Interest</h2>
+                <div class="interests-grid">
+                    <div class="interest-item">
+                        <div class="interest-icon"><i class="fas fa-shield-alt"></i></div>
+                        <div>
+                            <h4>Cyber Security</h4>
+                            <p>Protecting digital assets and understanding the latest security threats and defense
+                                mechanisms.</p>
+                        </div>
+                    </div>
+                    <div class="interest-item">
+                        <div class="interest-icon"><i class="fas fa-brain"></i></div>
+                        <div>
+                            <h4>Artificial Intelligence</h4>
+                            <p>Fascinated by AI's potential to transform industries through intelligent automation.</p>
+                        </div>
+                    </div>
+                    <div class="interest-item">
+                        <div class="interest-icon"><i class="fas fa-robot"></i></div>
+                        <div>
+                            <h4>Machine Learning</h4>
+                            <p>Exploring algorithms that enable computers to learn and make decisions from data.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
 
         </div>
     </div>
 
+    <!-- Gallery (full width) -->
+    <section id="gallery" class="gallery-full">
+        <div class="container">
+            <h2 class="section-title">Gallery</h2>
+            <div class="carousel-outer">
+                <button class="carousel-btn carousel-btn-prev" id="carouselPrev" aria-label="Previous">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <div class="carousel-track-container">
+                    <div class="carousel-track" id="carouselTrack">
+                        <div class="carousel-slide">
+                            <img src="./image/6.jpg" loading="lazy">
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="./image/5.jpg"loading="lazy">
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="./image/4.jfif"  loading="lazy">
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="./image/3.jfif"  loading="lazy">
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="./image/2.jfif" loading="lazy">
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="./image/1.jfif"  loading="lazy">
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="./image/7.jpg" loading="lazy">
+                        </div>
+                    </div>
+                </div>
+                <button class="carousel-btn carousel-btn-next" id="carouselNext" aria-label="Next">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <p>&copy; 2025 Edward Jemuel G. Montano. All rights reserved.</p>
+            <p>&copy; 2024 Edward Jemuel G. Montano. All rights reserved.</p>
         </div>
     </footer>
 

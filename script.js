@@ -1,40 +1,29 @@
 // =====================
-// NAV ACTIVE LINK (scroll spy)
+// DARK MODE TOGGLE
 // =====================
-const sections = document.querySelectorAll('section[id], div[id]');
-const navLinks = document.querySelectorAll('.nav-link');
+const themeToggle = document.getElementById('themeToggle');
+const themeIcon = themeToggle ? themeToggle.querySelector('i') : null;
 
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            navLinks.forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href') === '#' + entry.target.id) {
-                    link.classList.add('active');
-                }
-            });
-        }
+function applyTheme(isDark) {
+    document.documentElement.setAttribute('data-theme', isDark ? 'dark' : 'light');
+    if (themeIcon) {
+        themeIcon.className = isDark ? 'fas fa-sun' : 'fas fa-moon';
+    }
+}
+
+// Load saved preference or system preference
+const savedTheme = localStorage.getItem('theme');
+const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+const isDarkOnLoad = savedTheme ? savedTheme === 'dark' : prefersDark;
+applyTheme(isDarkOnLoad);
+
+if (themeToggle) {
+    themeToggle.addEventListener('click', () => {
+        const currentlyDark = document.documentElement.getAttribute('data-theme') === 'dark';
+        applyTheme(!currentlyDark);
+        localStorage.setItem('theme', !currentlyDark ? 'dark' : 'light');
     });
-}, { rootMargin: '-40% 0px -55% 0px' });
-
-sections.forEach(s => observer.observe(s));
-
-// =====================
-// MOBILE MENU TOGGLE
-// =====================
-const hamburger = document.getElementById('hamburger');
-const mobileMenu = document.getElementById('mobileMenu');
-
-hamburger.addEventListener('click', () => {
-    mobileMenu.classList.toggle('open');
-});
-
-// Close mobile menu when a link is clicked
-document.querySelectorAll('.m-link').forEach(link => {
-    link.addEventListener('click', () => {
-        mobileMenu.classList.remove('open');
-    });
-});
+}
 
 // =====================
 // SKILLS TABS
@@ -85,12 +74,12 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         const target = document.querySelector(this.getAttribute('href'));
         if (target) {
             e.preventDefault();
-            const offset = 70;
-            const top = target.getBoundingClientRect().top + window.scrollY - offset;
+            const top = target.getBoundingClientRect().top + window.scrollY;
             window.scrollTo({ top, behavior: 'smooth' });
         }
     });
 });
+
 
 // =====================
 // CONTACT FORM (basic success handling)
@@ -102,4 +91,52 @@ if (contactForm) {
         btn.textContent = 'Sending...';
         btn.disabled = true;
     });
+}
+
+// =====================
+// GALLERY CAROUSEL
+// =====================
+const track = document.getElementById('carouselTrack');
+const prevBtn = document.getElementById('carouselPrev');
+const nextBtn = document.getElementById('carouselNext');
+
+if (track && prevBtn && nextBtn) {
+    const slides = Array.from(track.querySelectorAll('.carousel-slide'));
+    const total = slides.length;
+    const visible = 5; // number of slides visible at once
+    let current = 0;
+
+    function getSlideWidth() {
+        // slide width + gap (10px)
+        return slides[0].getBoundingClientRect().width + 10;
+    }
+
+    function updateCarousel() {
+        const offset = current * getSlideWidth();
+        track.style.transform = `translateX(-${offset}px)`;
+        prevBtn.disabled = current === 0;
+        nextBtn.disabled = current >= total - visible;
+    }
+
+    prevBtn.addEventListener('click', () => {
+        if (current > 0) { current--; updateCarousel(); }
+    });
+
+    nextBtn.addEventListener('click', () => {
+        if (current < total - visible) { current++; updateCarousel(); }
+    });
+
+    // Touch/swipe support
+    let touchStartX = 0;
+    track.addEventListener('touchstart', e => { touchStartX = e.touches[0].clientX; }, { passive: true });
+    track.addEventListener('touchend', e => {
+        const diff = touchStartX - e.changedTouches[0].clientX;
+        if (diff > 40 && current < total - visible) { current++; updateCarousel(); }
+        else if (diff < -40 && current > 0) { current--; updateCarousel(); }
+    });
+
+    // Recalculate on resize
+    window.addEventListener('resize', () => updateCarousel());
+
+    updateCarousel();
 }
