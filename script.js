@@ -20,9 +20,7 @@ if (profileAvatar) profileAvatar.addEventListener('click', openLightbox);
 if (avatarBackdrop) avatarBackdrop.addEventListener('click', closeLightbox);
 if (avatarClose) avatarClose.addEventListener('click', closeLightbox);
 
-document.addEventListener('keydown', e => {
-    if (e.key === 'Escape') closeLightbox();
-});
+
 
 // =====================
 // DARK MODE TOGGLE
@@ -71,25 +69,72 @@ pills.forEach(pill => {
 });
 
 // =====================
-// PROJECT FILTER
+// PROJECT VIEW ALL
 // =====================
-const filterPills = document.querySelectorAll('.filter-pill');
-const projectRows = document.querySelectorAll('.project-row');
+const viewAllBtn = document.getElementById('viewAllProjects');
+const extraProjects = document.querySelectorAll('.project-extra');
+const interestsWrapper = document.getElementById('interestsWrapper');
+const colSide = document.querySelector('.col-side');
+const interestsSection = document.getElementById('interests');
 
-filterPills.forEach(pill => {
-    pill.addEventListener('click', () => {
-        filterPills.forEach(p => p.classList.remove('active'));
-        pill.classList.add('active');
+if (viewAllBtn) {
+    viewAllBtn.addEventListener('click', () => {
+        const isExpanded = viewAllBtn.classList.contains('expanded');
 
-        const filter = pill.dataset.filter;
-        projectRows.forEach(row => {
-            if (filter === 'all' || row.dataset.category === filter) {
-                row.classList.remove('hidden');
-            } else {
-                row.classList.add('hidden');
-            }
+        extraProjects.forEach(card => {
+            card.classList.toggle('visible', !isExpanded);
         });
+        viewAllBtn.classList.toggle('expanded', !isExpanded);
+        viewAllBtn.innerHTML = isExpanded
+            ? '<i class="fas fa-th-large"></i> View All Projects'
+            : '<i class="fas fa-chevron-up"></i> Show Less';
+
+        if (!isExpanded) {
+            // Move interests into col-side
+            interestsSection.classList.remove('interests-fullwidth');
+            interestsSection.querySelector('.interests-grid').classList.remove('interests-grid-wide');
+            colSide.appendChild(interestsSection);
+            interestsWrapper.style.display = 'none';
+        } else {
+            // Move interests back to full-width wrapper
+            interestsWrapper.style.display = '';
+            interestsSection.classList.add('interests-fullwidth');
+            interestsSection.querySelector('.interests-grid').classList.add('interests-grid-wide');
+            interestsWrapper.querySelector('.container').appendChild(interestsSection);
+        }
     });
+}
+
+// =====================
+// CONTACT MODAL
+// =====================
+const openContactModal = document.getElementById('openContactModal');
+const contactModalOverlay = document.getElementById('contactModalOverlay');
+const contactModalClose = document.getElementById('contactModalClose');
+
+function openModal() {
+    contactModalOverlay.classList.add('open');
+    document.body.style.overflow = 'hidden';
+}
+
+function closeModal() {
+    contactModalOverlay.classList.remove('open');
+    document.body.style.overflow = '';
+}
+
+if (openContactModal) openContactModal.addEventListener('click', openModal);
+if (contactModalClose) contactModalClose.addEventListener('click', closeModal);
+if (contactModalOverlay) {
+    contactModalOverlay.addEventListener('click', function(e) {
+        if (e.target === contactModalOverlay) closeModal();
+    });
+}
+
+document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') {
+        closeModal();
+        closeLightbox();
+    }
 });
 
 // =====================

@@ -43,9 +43,10 @@
                     <p class="profile-location"><i class="fas fa-map-marker-alt"></i> Metro Manila, Philippines
                     </p>
                     <p class="profile-tagline">Aspiring SOC Analyst &nbsp;/&nbsp; Cybersecurity Associate
-                     </p>
+                    </p>
                     <div class="profile-actions">
-                        <a href="#contact" class="btn-primary"><i class="fas fa-envelope"></i> Contact Me</a>
+                        <button class="btn-primary" id="openContactModal"><i class="fas fa-envelope"></i> Contact
+                            Me</button>
                         <a href="mailto:edwardjemuelm@gmail.com" class="btn-ghost"><i class="fas fa-paper-plane"></i>
                             Send Email</a>
                         <!-- <a href="https://edwardjemuelm.github.io/Portfolio/" class="btn-ghost" target="_blank"><i
@@ -146,8 +147,9 @@
                         <span class="stack-label">Languages & Frameworks</span>
                         <div class="tag-row">
                             <span class="tag">PHP</span><span class="tag">JavaScript</span><span
-                                class="tag">Python</span><span class="tag">C#</span><span class="tag">Typescript</span><span
-                                class="tag">HTML/CSS</span><span class="tag">React</span><span class="tag">Tailwind
+                                class="tag">Python</span><span class="tag">C#</span><span
+                                class="tag">Typescript</span><span class="tag">HTML/CSS</span><span
+                                class="tag">React</span><span class="tag">Tailwind
                                 CSS</span><span class="tag">Laravel</span><span class="tag">Django</span>
                         </div>
                     </div>
@@ -198,15 +200,6 @@
                 <div class="section-header-row">
                     <h2 class="section-title">Projects</h2>
                 </div>
-                <div class="projects-filter-row" id="projectFilter">
-                    <button class="filter-pill active" data-filter="all">All</button>
-                    <button class="filter-pill" data-filter="security">Security</button>
-                    <button class="filter-pill" data-filter="web">Web</button>
-                    <button class="filter-pill" data-filter="system">System</button>
-                    <button class="filter-pill" data-filter="game">Game</button>
-                    <button class="filter-pill" data-filter="media">Media</button>
-                </div>
-
                 <div class="projects-grid" id="projectsList">
 
                     <div class="project-card" data-category="security">
@@ -290,7 +283,7 @@
                         </div>
                     </div>
 
-                    <div class="project-card" data-category="system">
+                    <div class="project-card project-extra" data-category="system">
                         <div class="project-thumb">
                             <img src="./image/Transit.png" alt="Railway Reservation System" loading="lazy">
                             <span class="project-badge">System</span>
@@ -310,7 +303,7 @@
                         </div>
                     </div>
 
-                    <div class="project-card" data-category="media">
+                    <div class="project-card project-extra" data-category="media">
                         <div class="project-thumb">
                             <img src="./image/uncoded.png" alt="UNCODED Film" loading="lazy">
                             <span class="project-badge">Media</span>
@@ -330,7 +323,7 @@
                         </div>
                     </div>
 
-                    <div class="project-card" data-category="game">
+                    <div class="project-card project-extra" data-category="game">
                         <div class="project-thumb">
                             <img src="./image/drop4.png" alt="Drop 4 Java Game" loading="lazy">
                             <span class="project-badge">Game</span>
@@ -350,7 +343,7 @@
                         </div>
                     </div>
 
-                    <div class="project-card" data-category="game">
+                    <div class="project-card project-extra" data-category="game">
                         <div class="project-thumb">
                             <img src="./image/Cursed of the Tides.png" alt="Cursed of the Tides TTRPG" loading="lazy">
                             <span class="project-badge">Game</span>
@@ -370,6 +363,11 @@
                         </div>
                     </div>
 
+                </div>
+                <div class="projects-view-all-row">
+                    <button class="btn-ghost" id="viewAllProjects">
+                        <i class="fas fa-th-large"></i> View All Projects
+                    </button>
                 </div>
             </section>
 
@@ -575,10 +573,15 @@
             </section>
 -->
 
-            <!-- Interests -->
-            <section id="interests" class="card-section">
+        </div>
+    </div>
+
+    <!-- Areas of Interest (full-width by default, moves into sidebar when projects expanded) -->
+    <div id="interestsWrapper" class="interests-fullwidth-wrapper">
+        <div class="container">
+            <section id="interests" class="card-section interests-fullwidth">
                 <h2 class="section-title">Areas of Interest</h2>
-                <div class="interests-grid">
+                <div class="interests-grid interests-grid-wide">
                     <div class="interest-item">
                         <div class="interest-icon"><i class="fas fa-shield-alt"></i></div>
                         <div>
@@ -603,7 +606,6 @@
                     </div>
                 </div>
             </section>
-
         </div>
     </div>
 
@@ -659,6 +661,55 @@
             <p>&copy; 2024 Edward Jemuel G. Montano. All rights reserved.</p>
         </div>
     </footer>
+
+    <!-- Contact Modal -->
+    <div class="contact-modal-overlay" id="contactModalOverlay">
+        <div class="contact-modal" id="contactModal" role="dialog" aria-modal="true"
+            aria-labelledby="contactModalTitle">
+            <button class="contact-modal-close" id="contactModalClose" aria-label="Close">&times;</button>
+            <div class="contact-modal-header">
+                <div class="contact-modal-avatar">
+                    <img src="./image/me.jpg" alt="Edward Montano">
+                </div>
+                <h3 id="contactModalTitle">Get in Touch</h3>
+                <p>Available for cybersecurity roles, IT support &amp; software development.</p>
+            </div>
+            <div class="contact-modal-body">
+                <a href="https://www.linkedin.com/in/edwardjemuelmontano" class="contact-modal-row" target="_blank"
+                    rel="noopener">
+                    <span class="contact-modal-icon linkedin"><i class="fab fa-linkedin"></i></span>
+                    <div class="contact-modal-info">
+                        <span class="contact-modal-label">LinkedIn</span>
+                        <span class="contact-modal-value">edwardjemuelmontano</span>
+                    </div>
+                    <i class="fas fa-chevron-right contact-modal-arrow"></i>
+                </a>
+                <a href="mailto:edwardjemuelm@gmail.com" class="contact-modal-row">
+                    <span class="contact-modal-icon email"><i class="fas fa-envelope"></i></span>
+                    <div class="contact-modal-info">
+                        <span class="contact-modal-label">Email</span>
+                        <span class="contact-modal-value">edwardjemuelm@gmail.com</span>
+                    </div>
+                    <i class="fas fa-chevron-right contact-modal-arrow"></i>
+                </a>
+                <a href="tel:09708994852" class="contact-modal-row">
+                    <span class="contact-modal-icon phone"><i class="fas fa-phone"></i></span>
+                    <div class="contact-modal-info">
+                        <span class="contact-modal-label">Phone</span>
+                        <span class="contact-modal-value">0970 899 4852</span>
+                    </div>
+                    <i class="fas fa-chevron-right contact-modal-arrow"></i>
+                </a>
+                <div class="contact-modal-row no-link">
+                    <span class="contact-modal-icon location"><i class="fas fa-map-marker-alt"></i></span>
+                    <div class="contact-modal-info">
+                        <span class="contact-modal-label">Location</span>
+                        <span class="contact-modal-value">Metro Manila, Philippines</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <script src="script.js"></script>
 </body>
