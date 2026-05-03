@@ -496,13 +496,6 @@ a {
     vertical-align: middle;
 }
 
-
-font-size: 14px;
-font-weight: 700;
-color: var(--text-primary);
-line-height: 1.3;
-}
-
 .project-card-year {
     font-size: 12px;
     color: var(--text-muted);
@@ -614,6 +607,17 @@ line-height: 1.3;
     gap: 14px;
     padding: 10px 0;
     align-items: flex-start;
+    position: relative;
+}
+
+.exp-item:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    top: 25px;
+    left: 4px;
+    width: 2px;
+    bottom: -10px;
+    background: var(--border);
 }
 
 .exp-dot {
@@ -624,6 +628,8 @@ line-height: 1.3;
     background: var(--bg);
     flex-shrink: 0;
     margin-top: 5px;
+    position: relative;
+    z-index: 1;
 }
 
 .exp-dot.filled {
