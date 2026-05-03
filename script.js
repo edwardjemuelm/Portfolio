@@ -212,6 +212,7 @@ if (track && prevBtn && nextBtn) {
     updateCarousel();
 }
 
+//disabled rightclick
 document.addEventListener('contextmenu', function (event) {
   event.preventDefault();
 });
