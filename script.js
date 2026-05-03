@@ -211,3 +211,7 @@ if (track && prevBtn && nextBtn) {
 
     updateCarousel();
 }
+
+document.addEventListener('contextmenu', function (event) {
+  event.preventDefault();
+});
