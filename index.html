@@ -56,7 +56,7 @@
                 <div class="profile-right">
                     <div class="stats-card">
                         <div class="stat-item">
-                            <span class="stat-num">8+</span>
+                            <span class="stat-num">10+</span>
                             <span class="stat-lbl">Projects</span>
                         </div>
                         <div class="stat-divider"></div>
@@ -84,15 +84,15 @@
             <!-- About -->
             <section id="about" class="card-section">
                 <h2 class="section-title">About</h2>
-                <p>I am a passionate and curious IT Professional with experience in software development, IT
-                    infrastructure, and cybersecurity fundamentals. I have worked on real-world projects such as
-                    building websites, troubleshooting computer systems, and developing applications.</p>
-                <p>Currently completing my Bachelor of Science in Information Technology at Pamantasan ng Lungsod ng
+                <p>I am an aspiring SOC Analyst and IT professional with hands-on experience in IT infrastructure,
+                    endpoint security, and cybersecurity through internships and personal SOC lab projects. I've built
+                    home labs simulating real attack scenarios — using Wazuh, Velociraptor, Sysmon, and Metasploit — to
+                    develop practical skills in threat hunting, log analysis, and digital forensics.</p>
+                <p>I recently completed my Bachelor of Science in Information Technology at Pamantasan ng Lungsod ng
                     Valenzuela (2022–2026), with hands-on experience as an IT Infrastructure Intern at Prople BPO Inc.
                     and IT Support Specialist at PMX 515 Prime Inc.</p>
-                <p>I enjoy learning new technologies, solving problems, and collaborating with teams. I am eager to grow
-                    and contribute meaningfully by bringing my technical skills, security awareness, creativity, and
-                    enthusiasm to a forward-thinking company.</p>
+                <p>I'm eager to grow in a Security Operations Center environment, bringing strong analytical thinking,
+                    attention to detail, and a genuine passion for cybersecurity to every challenge I take on.</p>
             </section>
 
             <!-- Tech Stack / Skills -->
@@ -117,11 +117,13 @@
                         </div>
                     </div>
                     <div class="stack-group">
-                        <span class="stack-label">Security Operations</span>
+                        <span class="stack-label">Security Operations & Threat Detection</span>
                         <div class="tag-row">
-                            <span class="tag">Log Analysis</span><span class="tag">SIEM Concepts</span><span
-                                class="tag">Incident Triage</span><span class="tag">Threat
-                                Detection</span><span class="tag">Incident Reporting & Escalation</span>
+                            <span class="tag">Wazuh (SIEM)</span><span class="tag">Velociraptor (DFIR)</span><span
+                                class="tag">Sysmon</span><span class="tag">Microsoft Defender</span><span
+                                class="tag">Log Analysis</span><span class="tag">Threat Hunting</span><span
+                                class="tag">Incident Triage</span><span class="tag">IOC Identification</span><span
+                                class="tag">Incident Reporting & Escalation</span><span class="tag">Jira</span>
                         </div>
                     </div>
                     <div class="stack-group">
@@ -202,6 +204,58 @@
                 </div>
                 <div class="projects-grid" id="projectsList">
 
+                    <div class="project-card clickable-card" data-category="security"
+                        data-pdf="./pdf/threat-hunting-wazuh.pdf">
+                        <div class="project-thumb project-thumb-soc">
+                            <div class="project-thumb-icon"><i class="fas fa-search-dollar"></i></div>
+                            <span class="project-badge">SOC Lab</span>
+                            <span class="soc-label">SOC Lab</span>
+                            <div class="project-thumb-overlay"><i class="fas fa-file-pdf"></i> View Report</div>
+                        </div>
+                        <div class="project-card-body">
+                            <div class="project-card-top">
+                                <h4 class="project-card-name">Active Threat Hunting Lab Using Wazuh &amp; Velociraptor
+                                </h4>
+                            </div>
+                            <p class="project-card-desc">Built a home SOC lab to simulate endpoint attacks and
+                                investigate malicious activity. Generated a Meterpreter reverse TCP payload using
+                                Metasploit, executed it on an isolated Windows 11 VM, then correlated Wazuh SIEM alerts
+                                with Sysmon Event IDs (1, 3, 5, 11) and Velociraptor forensic artifacts to reconstruct
+                                the full attack lifecycle. Documented SHA-256 IOC hashes for malware analysis.</p>
+                            <div class="project-card-tags">
+                                <span class="tag">Wazuh</span><span class="tag">Velociraptor</span><span
+                                    class="tag">Sysmon</span><span class="tag">Metasploit</span><span
+                                    class="tag">DFIR</span><span class="tag">Threat Hunting</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-card clickable-card" data-category="security"
+                        data-pdf="./pdf/endpoint-forensics-velociraptor.pdf">
+                        <div class="project-thumb project-thumb-soc">
+                            <div class="project-thumb-icon"><i class="fas fa-microscope"></i></div>
+                            <span class="project-badge">SOC Lab</span>
+                            <span class="soc-label">SOC Lab</span>
+                            <div class="project-thumb-overlay"><i class="fas fa-file-pdf"></i> View Report</div>
+                        </div>
+                        <div class="project-card-body">
+                            <div class="project-card-top">
+                                <h4 class="project-card-name">Endpoint Forensics &amp; Threat Hunting Lab Using
+                                    Velociraptor</h4>
+                            </div>
+                            <p class="project-card-desc">Deployed a Velociraptor server on Ubuntu Linux and enrolled a
+                                Windows 11 endpoint to collect and analyze forensic artifacts — running processes (290
+                                identified), active network connections, Windows services, and scheduled tasks.
+                                Established a baseline of normal system activity and investigated potential IOCs across
+                                process execution, persistence mechanisms, and network activity.</p>
+                            <div class="project-card-tags">
+                                <span class="tag">Velociraptor</span><span class="tag">Endpoint Forensics</span><span
+                                    class="tag">Windows Artifacts</span><span class="tag">Threat Hunting</span><span
+                                    class="tag">Ubuntu Linux</span>
+                            </div>
+                        </div>
+                    </div>
+
                     <div class="project-card" data-category="security">
                         <div class="project-thumb">
                             <img src="./image/network.png" alt="Network Infrastructure Diagram" loading="lazy">
@@ -268,8 +322,8 @@
                         </div>
                         <div class="project-card-body">
                             <div class="project-card-top">
-                                <h4 class="project-card-name"><a href="https://edwardjemuelm.github.io/Glosaryo/" target="_blank"
-                                        rel="noopener noreferrer" class="project-link">Glosaryo Web and
+                                <h4 class="project-card-name"><a href="https://edwardjemuelm.github.io/Glosaryo/"
+                                        target="_blank" rel="noopener noreferrer" class="project-link">Glosaryo Web and
                                         Mobile Application
                                         <i class="fas fa-external-link-alt"></i></a></h4>
                             </div>
@@ -278,7 +332,8 @@
                                 featuring a glossary, flashcards, quizzes, and a pixel-art UI to enhance learning and
                                 retention.</p>
                             <div class="project-card-tags">
-                                <span class="tag">Web & Mobile App</span><span class="tag">UI/UX Design</span><span class="tag">Interactive
+                                <span class="tag">Web & Mobile App</span><span class="tag">UI/UX Design</span><span
+                                    class="tag">Interactive
                                     Learning</span>
                                 <span class="tag">Flashcards</span><span class="tag">Quiz System</span>
                             </div>
@@ -292,16 +347,20 @@
                         </div>
                         <div class="project-card-body">
                             <div class="project-card-top">
-                                <h4 class="project-card-name"><a href="https://drive.google.com/file/d/1AASDF2Xp49BiUnSY9c2JaETPolahUg9Y/view?usp=drive_link" target="_blank"
-                                        rel="noopener noreferrer" class="project-link">Mathimize: Linear Programming Tutor
+                                <h4 class="project-card-name"><a
+                                        href="https://drive.google.com/file/d/1AASDF2Xp49BiUnSY9c2JaETPolahUg9Y/view?usp=drive_link"
+                                        target="_blank" rel="noopener noreferrer" class="project-link">Mathimize: Linear
+                                        Programming Tutor
                                         <i class="fas fa-external-link-alt"></i></a></h4>
                             </div>
-                            <p class="project-card-desc">Android mobile application developed using Android Studio that helps
-                            students solve Linear Programming word problems step-by-step.
-                            Features multiple-choice assessments, guided tutorials, and focused
-                            LP practice exercises for improving mathematical problem-solving skills.</p>
+                            <p class="project-card-desc">Android mobile application developed using Android Studio that
+                                helps
+                                students solve Linear Programming word problems step-by-step.
+                                Features multiple-choice assessments, guided tutorials, and focused
+                                LP practice exercises for improving mathematical problem-solving skills.</p>
                             <div class="project-card-tags">
-                                <span class="tag">Android Studio</span><span class="tag">Linear Programming</span><span class="tag">Education</span>
+                                <span class="tag">Android Studio</span><span class="tag">Linear Programming</span><span
+                                    class="tag">Education</span>
                             </div>
                         </div>
                     </div>
@@ -756,6 +815,24 @@
                         <span class="contact-modal-value">Metro Manila, Philippines</span>
                     </div>
                 </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- PDF Viewer Modal -->
+    <div class="pdf-modal-overlay" id="pdfModalOverlay">
+        <div class="pdf-modal">
+            <div class="pdf-modal-header">
+                <span class="pdf-modal-title" id="pdfModalTitle">Project Report</span>
+                <div class="pdf-modal-actions">
+                    <a class="btn-ghost pdf-download-btn" id="pdfDownloadBtn" download target="_blank">
+                        <i class="fas fa-download"></i> Download
+                    </a>
+                    <button class="pdf-modal-close" id="pdfModalClose" aria-label="Close">&times;</button>
+                </div>
+            </div>
+            <div class="pdf-modal-body">
+                <iframe id="pdfFrame" src="" frameborder="0" allowfullscreen></iframe>
             </div>
         </div>
     </div>

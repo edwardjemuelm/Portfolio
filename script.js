@@ -216,3 +216,52 @@ if (track && prevBtn && nextBtn) {
 document.addEventListener('contextmenu', function (event) {
   event.preventDefault();
 });
+// =====================
+// PDF VIEWER MODAL
+// =====================
+const pdfModalOverlay = document.getElementById('pdfModalOverlay');
+const pdfModalClose = document.getElementById('pdfModalClose');
+const pdfFrame = document.getElementById('pdfFrame');
+const pdfModalTitle = document.getElementById('pdfModalTitle');
+const pdfDownloadBtn = document.getElementById('pdfDownloadBtn');
+
+const projectTitles = {
+    './pdf/threat-hunting-wazuh.pdf': 'Active Threat Hunting Lab Using Wazuh & Velociraptor',
+    './pdf/endpoint-forensics-velociraptor.pdf': 'Endpoint Forensics & Threat Hunting Lab Using Velociraptor',
+};
+
+function openPdfModal(pdfPath) {
+    pdfFrame.src = pdfPath;
+    pdfModalTitle.textContent = projectTitles[pdfPath] || 'Project Report';
+    pdfDownloadBtn.href = pdfPath;
+    pdfModalOverlay.classList.add('open');
+    document.body.style.overflow = 'hidden';
+}
+
+function closePdfModal() {
+    pdfModalOverlay.classList.remove('open');
+    pdfFrame.src = '';
+    document.body.style.overflow = '';
+}
+
+document.querySelectorAll('.clickable-card').forEach(card => {
+    card.addEventListener('click', function(e) {
+        // Don't trigger if clicking a link inside the card
+        if (e.target.closest('a')) return;
+        const pdf = this.dataset.pdf;
+        if (pdf) openPdfModal(pdf);
+    });
+});
+
+if (pdfModalClose) pdfModalClose.addEventListener('click', closePdfModal);
+if (pdfModalOverlay) {
+    pdfModalOverlay.addEventListener('click', function(e) {
+        if (e.target === pdfModalOverlay) closePdfModal();
+    });
+}
+
+// Add Escape key support for PDF modal
+const _origKeydown = document.onkeydown;
+document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') closePdfModal();
+});
