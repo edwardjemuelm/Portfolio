@@ -230,18 +230,58 @@ const projectTitles = {
     './pdf/endpoint-forensics-velociraptor.pdf': 'Endpoint Forensics & Threat Hunting Lab Using Velociraptor',
 };
 
+// Mobile browsers (Chrome/Samsung Internet on Android, in-app webviews, etc.)
+// don't reliably render a scrollable, all-pages PDF inside an <iframe>. The
+// native full-page PDF viewer they open in a new tab, however, always
+// supports proper scrolling/zooming through every page. So on mobile we skip
+// the in-page modal entirely and just open the PDF natively.
+function isMobileDevice() {
+    return window.matchMedia('(max-width: 768px)').matches ||
+        /Android|iPhone|iPad|iPod|Mobile|Silk/i.test(navigator.userAgent);
+}
+
+let scrollYBeforePdfModal = 0;
+
+function lockBodyScroll() {
+    // Plain `overflow: hidden` on <body> is not honored for touch-scrolling
+    // on iOS Safari, so the page behind the modal can still hijack the touch
+    // drag instead of it scrolling the iframe. Locking with `position: fixed`
+    // instead actually prevents that.
+    scrollYBeforePdfModal = window.scrollY;
+    document.body.style.position = 'fixed';
+    document.body.style.top = `-${scrollYBeforePdfModal}px`;
+    document.body.style.left = '0';
+    document.body.style.right = '0';
+    document.body.style.width = '100%';
+    document.body.style.overflow = 'hidden';
+}
+
+function unlockBodyScroll() {
+    document.body.style.position = '';
+    document.body.style.top = '';
+    document.body.style.left = '';
+    document.body.style.right = '';
+    document.body.style.width = '';
+    document.body.style.overflow = '';
+    window.scrollTo(0, scrollYBeforePdfModal);
+}
+
 function openPdfModal(pdfPath) {
+    if (isMobileDevice()) {
+        window.open(pdfPath, '_blank');
+        return;
+    }
     pdfFrame.src = pdfPath;
     pdfModalTitle.textContent = projectTitles[pdfPath] || 'Project Report';
     pdfDownloadBtn.href = pdfPath;
     pdfModalOverlay.classList.add('open');
-    document.body.style.overflow = 'hidden';
+    lockBodyScroll();
 }
 
 function closePdfModal() {
     pdfModalOverlay.classList.remove('open');
     pdfFrame.src = '';
-    document.body.style.overflow = '';
+    unlockBodyScroll();
 }
 
 document.querySelectorAll('.clickable-card').forEach(card => {
