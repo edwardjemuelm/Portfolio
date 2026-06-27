@@ -306,7 +306,7 @@ document.addEventListener('keydown', e => {
     if (e.key === 'Escape') closePdfModal();
 });
 // =====================
-// AI CHATBOT WIDGET
+// AI CHATBOT WIDGETT
 // =====================
 (function () {
 
