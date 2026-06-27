@@ -306,16 +306,16 @@ document.addEventListener('keydown', e => {
     if (e.key === 'Escape') closePdfModal();
 });
 // =====================
-// AI CHATBOT WIDGETT
+// AI CHATBOT WIDGET
 // =====================
 (function () {
 
-    // ── Helpers ──────────────────────────────────────
+    //  Helpers 
     function timeNow() {
         return new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
     }
 
-    // ── Knowledge Base ───────────────────────────────
+    //  Knowledge Base 
     const KB = [
         {
             match: /\b(hi|hello|hey|good\s(morning|afternoon|evening)|kumusta|musta)\b/,
@@ -335,7 +335,7 @@ document.addEventListener('keydown', e => {
         },
         {
             match: /available|open to work|hire|looking|opportunit|job offer|freelance/,
-            reply: "Yes, Edward is actively looking for opportunities — particularly as a SOC Analyst.\n\nFeel free to email him at:\nedwardjemuelm@gmail.com"
+            reply: "Yes, Edward is actively looking for opportunities — particularly as a SOC Analyst. He is also open to IT support and full-stack development roles.\n\nFeel free to email him at:\nedwardjemuelm@gmail.com"
         },
         {
             match: /certif|cisco|tryhackme|sophos|rubrik/,
@@ -378,8 +378,16 @@ document.addEventListener('keydown', e => {
             reply: "Edward has 10+ projects. Here are the highlights:\n\nCybersecurity\n- Active Threat Hunting Lab (Wazuh + Velociraptor)\n- Endpoint Forensics Lab (Velociraptor)\n- Network Infrastructure Diagram (Prople BPO)\n\nWeb & Systems\n- Inventor-E Inventory System (Capstone)\n- PMX 515 Company Website + Email Security\n- Glosaryo Educational App\n- Purple Hearts Online Store\n\nOther\n- UNCODED Short Film (Best Picture & Cinematography)\n- Mathimize Android App\n- Drop 4 Java Game\n\nScroll to the Projects section for details."
         },
         {
-            match: /experience|work|job|intern|prople|pmx|ojt/,
-            reply: "Edward's work experience:\n\nIT Infrastructure Intern\nProple BPO Inc. (Jun – Nov 2025)\n- 486 hours OJT\n- Designed MDF/IDF network diagrams in MS Visio\n- Created structured cabling and rack elevation layouts\n\nIT Support Specialist\nPMX 515 Prime Inc. (Jul 2024 – Feb 2025)\n- Built the company's responsive website\n- Configured SPF and DMARC email security records\n\nFull Stack Developer\nFreelance / Capstone (2023 – 2025)"
+            match: /prople|mandaluyong|active.?directory|symantec|broadcom|ticketing|lan.?patch|laptop.*deploy|endpoint.*check/,
+            reply: "IT Infrastructure Intern\nProple BPO Inc. | Mandaluyong City\nJune 2025 – November 2025\n\n- Managed user account provisioning and access control using Active Directory\n- Provided Level 1 IT support, troubleshooting hardware, software, and network issues for end users\n- Logged, documented, and resolved incidents and service requests using an IT ticketing system\n- Performed routine endpoint security checks including antivirus status verification and compliance monitoring using Broadcom Symantec Security\n- Monitored wireless network availability and connectivity to ensure operational stability\n- Configured and deployed company-issued laptops with domain integration and security policies\n- Supported data center networking operations including LAN patching and structured cabling\n- Assisted in IT audits and compliance checks, supporting security and operational standards\n- Provided remote technical support and endpoint monitoring using AnyDesk and RustDesk, troubleshooting hardware, software, and connectivity issues\n- Supported Business Continuity Plan (BCP) operations by ensuring workstations remained operational"
+        },
+        {
+            match: /pmx|515|malabon|spf|dmarc|email.*spoofing|mail.*server|macos.*issue|domain.*email/,
+            reply: "IT Support Specialist\nPMX 515 Prime Inc. | Malabon City\nJuly 2024 – February 2025\n\n- Implemented and configured SPF and DMARC DNS records, validating authorized mail servers, enforcing policy alignment, and reducing email spoofing and phishing risks\n- Troubleshot and resolved macOS and Windows system issues including email and domain-related problems\n- Supported domain email accounts including configuration, access issues, and basic security troubleshooting\n- Developed and deployed the company's business website, ensuring functionality and usability"
+        },
+        {
+            match: /experience|work|job|intern|prople|pmx|ojt|active.?directory|symantec|broadcom|ticketing|lan.?patch|endpoint/,
+            reply: "Edward's work experience:\n\nIT Infrastructure Intern\nProple BPO Inc. | Mandaluyong City\nJune 2025 – November 2025\n- Managed user account provisioning and access control using Active Directory\n- Provided Level 1 IT support, troubleshooting hardware, software, and network issues for end users\n- Logged, documented, and resolved incidents and service requests using an IT ticketing system\n- Performed routine endpoint security checks including antivirus status verification and compliance monitoring using Broadcom Symantec Security\n- Monitored wireless network availability and connectivity to ensure operational stability\n- Configured and deployed company-issued laptops with domain integration and security policies\n- Supported data center networking operations including LAN patching and structured cabling\n- Assisted in IT audits and compliance checks, supporting security and operational standards\n- Provided remote technical support and endpoint monitoring using AnyDesk and RustDesk, troubleshooting hardware, software, and connectivity issues\n- Supported Business Continuity Plan (BCP) operations by ensuring workstations remained operational\n\nIT Support Specialist\nPMX 515 Prime Inc. | Malabon City\nJuly 2024 – February 2025\n- Implemented and configured SPF and DMARC DNS records, validating authorized mail servers, enforcing policy alignment, and reducing email spoofing and phishing risks\n- Troubleshot and resolved macOS and Windows system issues including email and domain-related problems\n- Supported domain email accounts including configuration, access issues, and basic security troubleshooting\n- Developed and deployed the company's business website, ensuring functionality and usability"
         },
         {
             match: /education|school|college|university|plv|pamantasan|degree|bsit/,
@@ -411,11 +419,11 @@ document.addEventListener('keydown', e => {
         return "I am not sure about that. For anything specific, you can email Edward directly at edwardjemuelm@gmail.com and he will get back to you.";
     }
 
-    // ── State ─────────────────────────────────────────
+    //  State 
     let isOpen = false;
     let isTyping = false;
 
-    // ── DOM refs ──────────────────────────────────────
+    //  DOM refs 
     const widget      = document.getElementById('chatWidget');
     const launcher    = document.getElementById('chatLauncher');
     const launcherIcon  = launcher.querySelector('.chat-launcher-icon');
@@ -432,7 +440,7 @@ document.addEventListener('keydown', e => {
     // Set initial timestamp
     if (initTime) initTime.textContent = timeNow();
 
-    // ── Open / Close ──────────────────────────────────
+    //  Open / Close 
     function openChat() {
         isOpen = true;
         widget.classList.add('open');
@@ -453,7 +461,7 @@ document.addEventListener('keydown', e => {
     minimizeBtn.addEventListener('click', e => { e.stopPropagation(); closeChat(); });
     document.addEventListener('keydown', e => { if (e.key === 'Escape' && isOpen) closeChat(); });
 
-    // ── Clear ─────────────────────────────────────────
+    //  Clear 
     clearBtn.addEventListener('click', e => {
         e.stopPropagation();
         messages.innerHTML = `
@@ -474,7 +482,7 @@ document.addEventListener('keydown', e => {
         bindSuggestions();
     });
 
-    // ── Suggestions ───────────────────────────────────
+    //  Suggestions 
     function bindSuggestions() {
         document.querySelectorAll('.chat-suggestion-pill').forEach(pill => {
             pill.addEventListener('click', () => sendMessage(pill.textContent));
@@ -482,7 +490,7 @@ document.addEventListener('keydown', e => {
     }
     bindSuggestions();
 
-    // ── Char counter ──────────────────────────────────
+    //  Char counter 
     input.addEventListener('input', () => {
         const len = input.value.length;
         const max = 300;
@@ -497,7 +505,7 @@ document.addEventListener('keydown', e => {
         }
     });
 
-    // ── Append message ────────────────────────────────
+    //  Append message 
     function appendMessage(role, text) {
         const wrapper = document.createElement('div');
         wrapper.className = `chat-msg ${role}`;
@@ -526,7 +534,7 @@ document.addEventListener('keydown', e => {
         messages.scrollTop = messages.scrollHeight;
     }
 
-    // ── Typing indicator ──────────────────────────────
+    //  Typing indicator 
     function showTyping() {
         const el = document.createElement('div');
         el.className = 'chat-msg bot chat-typing';
@@ -540,7 +548,7 @@ document.addEventListener('keydown', e => {
         if (el) el.remove();
     }
 
-    // ── Send message ──────────────────────────────────
+    //  Send message 
     function sendMessage(text) {
         text = text.trim();
         if (!text || isTyping) return;
