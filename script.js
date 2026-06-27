@@ -335,7 +335,7 @@ document.addEventListener('keydown', e => {
         },
         {
             match: /available|open to work|hire|looking|opportunit|job offer|freelance/,
-            reply: "Yes, Edward is actively looking for opportunities — particularly as a SOC Analyst. He is also open to IT support and full-stack development roles.\n\nFeel free to email him at:\nedwardjemuelm@gmail.com"
+            reply: "Yes, Edward is actively looking for opportunities — particularly as a SOC Analyst.\n\nFeel free to email him at:\nedwardjemuelm@gmail.com"
         },
         {
             match: /certif|cisco|tryhackme|sophos|rubrik/,
