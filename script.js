@@ -541,29 +541,25 @@ Keep answers focused, accurate, and based only on the information above. If aske
         showTyping();
 
         try {
-            const GEMINI_API_KEY = 'AQ.Ab8RN6Iynmxy8T_hwk90c8FxoP7Oio3EJH2BX_yW8oQxLLbTig';
+            // ← Paste your DeepSeek API key here
+            // Get one free at: https://platform.deepseek.com/api_keys
+            const DEEPSEEK_API_KEY = 'sk-d4bfbc6098d44fc5bd2237848e34b916';
 
-            // Convert conversation history to Gemini format
-            const geminiHistory = conversationHistory.slice(0, -1).map(m => ({
-                role: m.role === 'assistant' ? 'model' : 'user',
-                parts: [{ text: m.content }]
-            }));
-
-            const response = await fetch(
-                `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${GEMINI_API_KEY}`,
-                {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({
-                        system_instruction: { parts: [{ text: RESUME_CONTEXT }] },
-                        contents: [
-                            ...geminiHistory,
-                            { role: 'user', parts: [{ text: text }] }
-                        ],
-                        generationConfig: { maxOutputTokens: 800 }
-                    })
-                }
-            );
+            const response = await fetch('https://api.deepseek.com/chat/completions', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${DEEPSEEK_API_KEY}`
+                },
+                body: JSON.stringify({
+                    model: 'deepseek-chat',
+                    max_tokens: 800,
+                    messages: [
+                        { role: 'system', content: RESUME_CONTEXT },
+                        ...conversationHistory
+                    ]
+                })
+            });
 
             const data = await response.json();
 
@@ -571,7 +567,7 @@ Keep answers focused, accurate, and based only on the information above. If aske
                 throw new Error(data.error?.message || 'API error');
             }
 
-            const reply = data.candidates?.[0]?.content?.parts?.[0]?.text || 'Sorry, I could not generate a response.';
+            const reply = data.choices?.[0]?.message?.content || 'Sorry, I could not generate a response.';
 
             conversationHistory.push({ role: 'assistant', content: reply });
             hideTyping();
