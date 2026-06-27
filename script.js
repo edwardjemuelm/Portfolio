@@ -309,280 +309,267 @@ document.addEventListener('keydown', e => {
 // AI CHATBOT WIDGET
 // =====================
 (function () {
-    const RESUME_CONTEXT = `
-You are an AI assistant embedded in Edward Jemuel G. Montano's personal portfolio website. Answer questions about Edward naturally and helpfully — as if you're his knowledgeable representative. Be concise, friendly, and professional.
 
-=== PERSONAL INFO ===
-Full Name: Edward Jemuel G. Montano
-Location: Metro Manila, Philippines
-Email: edwardjemuelm@gmail.com
-Phone: 0970 899 4852
-LinkedIn: linkedin.com/in/edwardjemuelmontano
-GitHub Portfolio: edwardjemuelm.github.io/Portfolio/
+    // ── Helpers ──────────────────────────────────────
+    function timeNow() {
+        return new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+    }
 
-=== ABOUT ===
-Aspiring SOC Analyst and IT professional with hands-on experience in IT infrastructure, endpoint security, and cybersecurity. Built home labs simulating real attack scenarios using Wazuh, Velociraptor, Sysmon, and Metasploit to develop practical skills in threat hunting, log analysis, and digital forensics. Completed Bachelor of Science in Information Technology at Pamantasan ng Lungsod ng Valenzuela (2022–2026). Eager to grow in a Security Operations Center environment.
+    // ── Knowledge Base ───────────────────────────────
+    const KB = [
+        {
+            match: /\b(hi|hello|hey|good\s(morning|afternoon|evening)|kumusta|musta)\b/,
+            reply: "Hi! I am Edward's assistant.\n\nYou can ask me about his skills, projects, work experience, certifications, or how to get in touch with him."
+        },
+        {
+            match: /contact|email|phone|reach|message|gmail/,
+            reply: "Here is how you can reach Edward:\n\nEmail\nedwardjemuelm@gmail.com\n\nPhone\n0970 899 4852\n\nLinkedIn\nlinkedin.com/in/edwardjemuelmontano\n\nYou can also use the Contact button on this page."
+        },
+        {
+            match: /linkedin/,
+            reply: "Edward's LinkedIn:\nlinkedin.com/in/edwardjemuelmontano"
+        },
+        {
+            match: /github/,
+            reply: "You are already on Edward's GitHub Pages portfolio. His GitHub account is linked on this page."
+        },
+        {
+            match: /available|open to work|hire|looking|opportunit|job offer|freelance/,
+            reply: "Yes, Edward is actively looking for opportunities — particularly as a SOC Analyst.\n\nFeel free to email him at:\nedwardjemuelm@gmail.com"
+        },
+        {
+            match: /certif|cisco|tryhackme|sophos|rubrik/,
+            reply: "Edward has 10+ certifications:\n\nCisco\n- Cybersecurity Defense Analyst\n- Junior Cybersecurity Analyst\n- Introduction to Cybersecurity\n\nTryHackMe\n- SOC Level 1\n- Jr. Penetration Tester\n- Cyber Security 101\n\nOthers\n- Google Workspace Admin (Globe Business)\n- Data Protection & Cloud Security (Rubrik & Microsoft)\n- Ignite the Power of Cybersecurity (Sophos)"
+        },
+        {
+            match: /wazuh|velociraptor|threat.?hunt|soc.?lab|metasploit|sysmon/,
+            reply: "Edward built a home SOC lab where he:\n\n- Simulated attacks using Metasploit Meterpreter reverse TCP payloads\n- Correlated Wazuh SIEM alerts with Sysmon Event IDs (1, 3, 5, 11)\n- Deployed Velociraptor on Ubuntu and enrolled Windows 11 endpoints\n- Collected forensic artifacts: processes, network connections, scheduled tasks\n- Documented SHA-256 IOC hashes for malware analysis"
+        },
+        {
+            match: /security|soc|cyber|threat|siem|forensic|incident|penetration|pentest/,
+            reply: "Cybersecurity is Edward's main focus. He has built hands-on home SOC labs using Wazuh, Velociraptor, and Sysmon to simulate and detect real attacks.\n\nKey certifications:\n- Cybersecurity Defense Analyst (Cisco)\n- Junior Cybersecurity Analyst (Cisco)\n- SOC Level 1 (TryHackMe)\n- Jr. Penetration Tester (TryHackMe)"
+        },
+        {
+            match: /skill|tech|stack|language|tool|framework|know|proficient/,
+            reply: "Edward's skill set:\n\nSecurity\n- Wazuh, Velociraptor, Sysmon, Metasploit\n- Burp Suite, Nmap, Wireshark\n- Incident Triage, Threat Hunting\n- Active Directory, Microsoft Defender\n\nDevelopment\n- PHP, JavaScript, Python, C#\n- React, Laravel, Django\n- MySQL, Firebase, MS SQL Server\n\nTools\n- Figma, Adobe Suite, Microsoft Visio\n- Git, GitHub, DaVinci Resolve"
+        },
+        {
+            match: /inventor|inventory|capstone/,
+            reply: "Inventor-E is Edward's capstone project — a full-stack inventory management system.\n\nFeatures:\n- QR code scanning\n- Equipment tracking\n- User roles and access control\n- Real-time updates\n- Analytics dashboard\n\nBuilt with PHP, MySQL, and JavaScript."
+        },
+        {
+            match: /glosaryo|glossary|flashcard/,
+            reply: "Glosaryo is a bilingual educational web and mobile app built for a Bachelor of Education client.\n\nFeatures:\n- Glossary and flashcards\n- Quiz system\n- Pixel-art UI design"
+        },
+        {
+            match: /pmx|515|website.*company|company.*website|email.?security|spf|dmarc/,
+            reply: "Edward built the full website for PMX 515 Prime Inc. and also configured SPF and DMARC DNS records to authenticate their email and reduce phishing risks."
+        },
+        {
+            match: /film|uncoded|cinematograph|short.?film|best.?picture/,
+            reply: "UNCODED is Edward's short film that won Best in Picture and Best in Cinematography. He handled the full editing using DaVinci Resolve."
+        },
+        {
+            match: /mathimize|linear.?program|math.*app/,
+            reply: "Mathimize is an Android app that helps students solve Linear Programming problems step by step, with guided tutorials and multiple-choice assessments."
+        },
+        {
+            match: /project|built|made|portfolio|capstone/,
+            reply: "Edward has 10+ projects. Here are the highlights:\n\nCybersecurity\n- Active Threat Hunting Lab (Wazuh + Velociraptor)\n- Endpoint Forensics Lab (Velociraptor)\n- Network Infrastructure Diagram (Prople BPO)\n\nWeb & Systems\n- Inventor-E Inventory System (Capstone)\n- PMX 515 Company Website + Email Security\n- Glosaryo Educational App\n- Purple Hearts Online Store\n\nOther\n- UNCODED Short Film (Best Picture & Cinematography)\n- Mathimize Android App\n- Drop 4 Java Game\n\nScroll to the Projects section for details."
+        },
+        {
+            match: /experience|work|job|intern|prople|pmx|ojt/,
+            reply: "Edward's work experience:\n\nIT Infrastructure Intern\nProple BPO Inc. (Jun – Nov 2025)\n- 486 hours OJT\n- Designed MDF/IDF network diagrams in MS Visio\n- Created structured cabling and rack elevation layouts\n\nIT Support Specialist\nPMX 515 Prime Inc. (Jul 2024 – Feb 2025)\n- Built the company's responsive website\n- Configured SPF and DMARC email security records\n\nFull Stack Developer\nFreelance / Capstone (2023 – 2025)"
+        },
+        {
+            match: /education|school|college|university|plv|pamantasan|degree|bsit/,
+            reply: "Edward is completing his BS Information Technology degree at Pamantasan ng Lungsod ng Valenzuela (2022 – 2026).\n\nHe also completed 486 hours of IT Infrastructure OJT at Prople BPO Inc. (2025)."
+        },
+        {
+            match: /interest|passion|hobby|like|love/,
+            reply: "Edward's interests:\n\n- Cybersecurity: threat defense, SOC operations, and security tooling\n- Artificial Intelligence: intelligent automation and its impact across industries\n- Machine Learning: building systems that learn from data"
+        },
+        {
+            match: /location|where.*from|manila|philippines|based/,
+            reply: "Edward is based in Metro Manila, Philippines."
+        },
+        {
+            match: /thank|thanks|salamat|appreciate/,
+            reply: "You are welcome. Feel free to ask anything else."
+        },
+        {
+            match: /who are you|what are you|are you (a )?(bot|ai|robot|assistant)/,
+            reply: "I am a chatbot built into Edward's portfolio. I can answer questions about his skills, projects, work experience, certifications, and contact details."
+        },
+    ];
 
-=== EXPERIENCE ===
-1. IT Infrastructure Intern — Prople BPO Inc., Mandaluyong City (Jun–Nov 2025)
-   - 486 hours OJT in IT infrastructure
-   - Designed MDF/IDF network infrastructure diagrams using Microsoft Visio
-   - Structured cabling layouts and rack elevations
-2. IT Support Specialist — PMX 515 Prime Inc., Malabon City (Jul 2024–Feb 2025)
-   - Built and deployed the company's responsive website (pmx515prime.com)
-   - Configured SPF and DMARC DNS records for email security
-3. Full Stack Developer — Freelance/Capstone Projects (2023–2025)
-4. BSIT Student — Pamantasan ng Lungsod ng Valenzuela (Sep 2022–May 2026)
-5. First line of code written in 2018
+    function getStaticReply(msg) {
+        const q = msg.toLowerCase().trim();
+        for (const entry of KB) {
+            if (entry.match.test(q)) return entry.reply;
+        }
+        return "I am not sure about that. For anything specific, you can email Edward directly at edwardjemuelm@gmail.com and he will get back to you.";
+    }
 
-=== EDUCATION ===
-- BS Information Technology, Pamantasan ng Lungsod ng Valenzuela (Sep 2022–May 2026)
-- IT Infrastructure OJT at Prople BPO Inc. — 486 hours (Jun–Nov 2025)
-
-=== SKILLS ===
-Security:
-- Network & Endpoint: TCP/IP, DNS, HTTP/S, Wireshark, Nmap/Zenmap, Firewall Rules, Symantec Endpoint
-- SOC & Threat Detection: Wazuh (SIEM), Velociraptor (DFIR), Sysmon, Microsoft Defender, Log Analysis, Threat Hunting, Incident Triage, IOC Identification, Incident Reporting & Escalation, Jira
-- Threat Testing: Burp Suite, Gobuster/DIRB, Hydra, Metasploit, Web Reconnaissance, Vulnerability Assessment
-- Systems & Admin: Windows, Linux, macOS, Active Directory, User Access Management, Google Workspace
-
-Development:
-- Languages: PHP, JavaScript, Python, C#, TypeScript, HTML/CSS
-- Frameworks: React, Tailwind CSS, Laravel, Django
-- Databases: MySQL, SQLite, Firebase, MS SQL Server
-- Version Control: Git, GitHub
-
-Tools:
-- Dev Tools: Visual Studio, VS Code, XAMPP, Microsoft Visio
-- Design: Figma, Adobe Creative Suite, DaVinci Resolve, Blender 3D, Unity
-- Soft Skills: Analytical Thinking, Attention to Detail, Adaptability, Teamwork, Continuous Learning
-
-=== PROJECTS (10+) ===
-1. Active Threat Hunting Lab Using Wazuh & Velociraptor (SOC Lab)
-   - Built home SOC lab, simulated endpoint attacks using Metasploit Meterpreter reverse TCP payload
-   - Correlated Wazuh SIEM alerts with Sysmon Event IDs (1, 3, 5, 11) and Velociraptor forensic artifacts
-   - Documented SHA-256 IOC hashes for malware analysis
-   - Tags: Wazuh, Velociraptor, Sysmon, Metasploit, DFIR, Threat Hunting
-
-2. Endpoint Forensics & Threat Hunting Lab Using Velociraptor (SOC Lab)
-   - Deployed Velociraptor server on Ubuntu Linux, enrolled Windows 11 endpoint
-   - Collected forensic artifacts: 290 running processes, network connections, Windows services, scheduled tasks
-   - Tags: Velociraptor, Endpoint Forensics, Windows Artifacts, Threat Hunting, Ubuntu Linux
-
-3. Network Infrastructure Diagram (Security)
-   - Designed MDF and IDF diagrams for Prople BPO Inc.
-   - Structured cabling layouts, rack elevations, end-to-end network topology documentation
-   - Tags: Microsoft Visio, Network Topology, Structured Cabling
-
-4. Inventor-E: Inventory System (Capstone)
-   - Full-stack inventory management system with booking, equipment tracking, user roles, real-time updates, QR code scanning, analytics dashboard
-   - Applied secure coding practices
-   - Tags: PHP, MySQL, JavaScript, QR Code
-
-5. PMX 515 Website & Email Security (Web)
-   - Built responsive professional website for PMX 515 Prime Inc.
-   - Configured SPF and DMARC DNS records to authenticate email, reduce phishing
-   - Tags: HTML/CSS/JS, SPF/DMARC, DNS Security
-
-6. Glosaryo Web and Mobile Application (Web)
-   - Bilingual educational app for a Bachelor of Education (Filipino major) client
-   - Features: glossary, flashcards, quizzes, pixel-art UI
-   - Tags: Web & Mobile App, UI/UX Design, Flashcards, Quiz System
-
-7. Mathimize: Linear Programming Tutor (Mobile App)
-   - Android app helping students solve Linear Programming problems step-by-step
-   - Features: multiple-choice assessments, guided tutorials, LP practice exercises
-   - Tags: Android Studio, Linear Programming, Education
-
-8. Purple Hearts Online Store (System)
-   - E-commerce web system with product listings, shopping cart, order management, user authentication
-   - Tags: PHP, MySQL, E-Commerce
-
-9. Online Railway Reservation System (System)
-   - WinForms application in C# .NET for railway ticket booking, seat management, payment processing
-   - Tags: C#, WinForms, .NET, SQL
-
-10. UNCODED (Media)
-    - Award-winning short film — Best in Picture & Cinematography
-    - Tags: DaVinci Resolve, Cinematography, Storytelling
-
-11. Drop 4 Java Game
-    - Strategic Java-based Connect Four game with OOP principles
-    - Tags: Java, OOP, Game Logic
-
-12. Cursed of the Tides TTRPG
-    - Complete tabletop RPG with custom mechanics, world-building, original character design
-    - Tags: Game Design, Storytelling, World Building
-
-=== CERTIFICATIONS (10+) ===
-- Cybersecurity Defense Analyst — Cisco Networking Academy
-- Junior Cybersecurity Analyst — Cisco Networking Academy
-- Introduction to Cybersecurity — Cisco Networking Academy
-- SOC Level 1 — TryHackMe
-- Jr. Penetration Tester — TryHackMe
-- Cyber Security 101 — TryHackMe
-- Google Workspace Admin Training — Globe Business
-- Google Workspace End User Training — Globe Business
-- Ignite the Power of Cybersecurity with Sophos — Micro Pacific Technologies
-- Data Protection & Cloud Security Workshop — Rubrik & Microsoft
-
-=== AREAS OF INTEREST ===
-- Cybersecurity: Protecting digital assets, latest threats and defense mechanisms
-- Artificial Intelligence: AI's potential to transform industries through intelligent automation
-- Machine Learning: Algorithms that enable computers to learn and make decisions from data
-
-=== STATS ===
-- 10+ Projects
-- 10+ Certifications
-- 1+ Year of Professional Experience
-
-Keep answers focused, accurate, and based only on the information above. If asked something outside this scope, politely redirect. For contact/hiring inquiries, encourage them to reach out via email (edwardjemuelm@gmail.com) or LinkedIn.
-`;
-
-    let conversationHistory = [];
+    // ── State ─────────────────────────────────────────
     let isOpen = false;
     let isTyping = false;
 
-    const widget = document.getElementById('chatWidget');
-    const launcher = document.getElementById('chatLauncher');
-    const launcherIcon = launcher.querySelector('.chat-launcher-icon');
+    // ── DOM refs ──────────────────────────────────────
+    const widget      = document.getElementById('chatWidget');
+    const launcher    = document.getElementById('chatLauncher');
+    const launcherIcon  = launcher.querySelector('.chat-launcher-icon');
     const launcherClose = launcher.querySelector('.chat-launcher-close');
     const launcherBadge = document.getElementById('chatLauncherBadge');
-    const messages = document.getElementById('chatMessages');
-    const input = document.getElementById('chatInput');
-    const sendBtn = document.getElementById('chatSend');
-    const clearBtn = document.getElementById('chatClear');
+    const messages    = document.getElementById('chatMessages');
+    const input       = document.getElementById('chatInput');
+    const sendBtn     = document.getElementById('chatSend');
+    const clearBtn    = document.getElementById('chatClear');
     const minimizeBtn = document.getElementById('chatMinimize');
-    const suggestions = document.getElementById('chatSuggestions');
+    const charCount   = document.getElementById('chatCharCount');
+    const initTime    = document.getElementById('chatInitTime');
 
-    function toggleChat() {
-        isOpen = !isOpen;
-        widget.classList.toggle('open', isOpen);
-        launcherIcon.style.display = isOpen ? 'none' : '';
-        launcherClose.style.display = isOpen ? '' : 'none';
+    // Set initial timestamp
+    if (initTime) initTime.textContent = timeNow();
+
+    // ── Open / Close ──────────────────────────────────
+    function openChat() {
+        isOpen = true;
+        widget.classList.add('open');
+        launcherIcon.style.display = 'none';
+        launcherClose.style.display = '';
         launcherBadge.classList.add('hidden');
-        if (isOpen) {
-            setTimeout(() => input.focus(), 200);
-        }
+        setTimeout(() => input.focus(), 220);
     }
 
-    launcher.addEventListener('click', toggleChat);
-    minimizeBtn.addEventListener('click', (e) => { e.stopPropagation(); toggleChat(); });
+    function closeChat() {
+        isOpen = false;
+        widget.classList.remove('open');
+        launcherIcon.style.display = '';
+        launcherClose.style.display = 'none';
+    }
 
-    clearBtn.addEventListener('click', (e) => {
+    launcher.addEventListener('click', () => isOpen ? closeChat() : openChat());
+    minimizeBtn.addEventListener('click', e => { e.stopPropagation(); closeChat(); });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape' && isOpen) closeChat(); });
+
+    // ── Clear ─────────────────────────────────────────
+    clearBtn.addEventListener('click', e => {
         e.stopPropagation();
-        conversationHistory = [];
         messages.innerHTML = `
+            <div class="chat-date-divider">Today</div>
             <div class="chat-msg bot">
-                <div class="chat-bubble">Hey! 👋 I'm Edward's AI assistant. Ask me anything about his skills, projects, experience, or how to get in touch.</div>
+                <div class="chat-bubble">Hi! I am Edward's assistant. Ask me about his skills, projects, experience, or how to contact him.</div>
+                <span class="chat-time">${timeNow()}</span>
             </div>
             <div class="chat-suggestions" id="chatSuggestions">
-                <button class="chat-suggestion-pill">What are your top skills?</button>
-                <button class="chat-suggestion-pill">Tell me about your projects</button>
-                <button class="chat-suggestion-pill">What's your experience?</button>
-                <button class="chat-suggestion-pill">How can I contact you?</button>
+                <button class="chat-suggestion-pill">Top skills</button>
+                <button class="chat-suggestion-pill">Projects</button>
+                <button class="chat-suggestion-pill">Experience</button>
+                <button class="chat-suggestion-pill">Contact info</button>
+                <button class="chat-suggestion-pill">Certifications</button>
+                <button class="chat-suggestion-pill">Available to hire?</button>
             </div>`;
         clearBtn.style.display = 'none';
         bindSuggestions();
     });
 
+    // ── Suggestions ───────────────────────────────────
     function bindSuggestions() {
         document.querySelectorAll('.chat-suggestion-pill').forEach(pill => {
-            pill.addEventListener('click', () => {
-                sendMessage(pill.textContent);
-            });
+            pill.addEventListener('click', () => sendMessage(pill.textContent));
         });
     }
-
     bindSuggestions();
 
-    function appendMessage(role, text, isError = false) {
+    // ── Char counter ──────────────────────────────────
+    input.addEventListener('input', () => {
+        const len = input.value.length;
+        const max = 300;
+        sendBtn.disabled = len === 0 || isTyping;
+        if (len === 0) {
+            charCount.textContent = '';
+            charCount.className = 'chat-char-count';
+        } else {
+            charCount.textContent = `${len}/${max}`;
+            charCount.className = 'chat-char-count' +
+                (len >= max ? ' limit' : len >= max * 0.8 ? ' warn' : '');
+        }
+    });
+
+    // ── Append message ────────────────────────────────
+    function appendMessage(role, text) {
         const wrapper = document.createElement('div');
         wrapper.className = `chat-msg ${role}`;
+
         const bubble = document.createElement('div');
-        bubble.className = 'chat-bubble' + (isError ? ' error' : '');
-        bubble.textContent = text;
+        bubble.className = 'chat-bubble';
+
+        // Render blank lines as spacers, others as text + <br>
+        const lines = text.split('\n');
+        lines.forEach((line, i) => {
+            if (line === '' && i > 0) {
+                bubble.appendChild(document.createElement('br'));
+            } else {
+                bubble.appendChild(document.createTextNode(line));
+                if (i < lines.length - 1) bubble.appendChild(document.createElement('br'));
+            }
+        });
+
+        const time = document.createElement('span');
+        time.className = 'chat-time';
+        time.textContent = timeNow();
+
         wrapper.appendChild(bubble);
+        wrapper.appendChild(time);
         messages.appendChild(wrapper);
         messages.scrollTop = messages.scrollHeight;
-        return wrapper;
     }
 
+    // ── Typing indicator ──────────────────────────────
     function showTyping() {
-        const wrapper = document.createElement('div');
-        wrapper.className = 'chat-msg bot chat-typing';
-        wrapper.id = 'chatTypingIndicator';
-        wrapper.innerHTML = '<div class="chat-bubble"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>';
-        messages.appendChild(wrapper);
+        const el = document.createElement('div');
+        el.className = 'chat-msg bot chat-typing';
+        el.id = 'chatTypingIndicator';
+        el.innerHTML = '<div class="chat-bubble"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>';
+        messages.appendChild(el);
         messages.scrollTop = messages.scrollHeight;
     }
-
     function hideTyping() {
         const el = document.getElementById('chatTypingIndicator');
         if (el) el.remove();
     }
 
-    async function sendMessage(text) {
+    // ── Send message ──────────────────────────────────
+    function sendMessage(text) {
         text = text.trim();
         if (!text || isTyping) return;
 
-        // Remove suggestions on first real message
         const suggestionsEl = document.getElementById('chatSuggestions');
         if (suggestionsEl) suggestionsEl.remove();
 
         clearBtn.style.display = '';
         appendMessage('user', text);
-        conversationHistory.push({ role: 'user', content: text });
-
         input.value = '';
+        charCount.textContent = '';
+        charCount.className = 'chat-char-count';
         input.disabled = true;
         sendBtn.disabled = true;
         isTyping = true;
         showTyping();
 
-        try {
-            // ← Paste your DeepSeek API key here
-            // Get one free at: https://platform.deepseek.com/api_keys
-            const DEEPSEEK_API_KEY = 'sk-d4bfbc6098d44fc5bd2237848e34b916';
+        // Vary delay slightly based on reply length
+        const reply = getStaticReply(text);
+        const delay = Math.min(600 + reply.length * 1.2, 1800);
 
-            const response = await fetch('https://api.deepseek.com/chat/completions', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Authorization': `Bearer ${DEEPSEEK_API_KEY}`
-                },
-                body: JSON.stringify({
-                    model: 'deepseek-chat',
-                    max_tokens: 800,
-                    messages: [
-                        { role: 'system', content: RESUME_CONTEXT },
-                        ...conversationHistory
-                    ]
-                })
-            });
-
-            const data = await response.json();
-
-            if (!response.ok) {
-                throw new Error(data.error?.message || 'API error');
-            }
-
-            const reply = data.choices?.[0]?.message?.content || 'Sorry, I could not generate a response.';
-
-            conversationHistory.push({ role: 'assistant', content: reply });
+        setTimeout(() => {
             hideTyping();
             appendMessage('bot', reply);
-        } catch (err) {
-            hideTyping();
-            appendMessage('bot', '⚠️ Something went wrong. Please try again in a moment.', true);
-            // Remove failed message from history
-            conversationHistory.pop();
-        } finally {
             input.disabled = false;
-            sendBtn.disabled = false;
+            sendBtn.disabled = true; // keep disabled until user types again
             isTyping = false;
             input.focus();
-        }
+        }, delay);
     }
 
     sendBtn.addEventListener('click', () => sendMessage(input.value));
@@ -593,8 +580,4 @@ Keep answers focused, accurate, and based only on the information above. If aske
         }
     });
 
-    // Close on Escape (don't interfere with other modals)
-    document.addEventListener('keydown', e => {
-        if (e.key === 'Escape' && isOpen) toggleChat();
-    });
 })();

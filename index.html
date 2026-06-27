@@ -838,46 +838,56 @@
     </div>
 
     <!-- AI Chatbot Widget -->
-    <div class="chat-widget" id="chatWidget">
-        <div class="chat-header" id="chatToggle">
+    <div class="chat-widget" id="chatWidget" role="dialog" aria-label="Chat with Edward's assistant">
+        <div class="chat-header">
             <div class="chat-header-left">
                 <div class="chat-avatar">
                     <img src="./image/mee.jpg" alt="Edward">
                     <span class="chat-status-dot"></span>
                 </div>
-                <div class="chat-header-info">
-                    <span class="chat-header-name">Ask Edward's AI</span>
+                <div>
+                    <span class="chat-header-name">Edward's Assistant</span>
+                    <span class="chat-header-sub">Usually replies instantly</span>
                 </div>
             </div>
             <div class="chat-header-actions">
-                <button class="chat-clear-btn" id="chatClear" title="Clear chat" style="display:none">
+                <button class="chat-clear-btn" id="chatClear" title="Clear conversation" style="display:none"
+                    aria-label="Clear chat">
                     <i class="fas fa-rotate-left"></i>
                 </button>
-                <button class="chat-minimize-btn" id="chatMinimize" aria-label="Minimize">
-                    <i class="fas fa-chevron-down"></i>
+                <button class="chat-minimize-btn" id="chatMinimize" aria-label="Close chat">
+                    <i class="fas fa-xmark"></i>
                 </button>
             </div>
         </div>
 
-        <div class="chat-body" id="chatBody">
+        <div class="chat-body">
             <div class="chat-messages" id="chatMessages">
+                <div class="chat-date-divider">Today</div>
                 <div class="chat-msg bot">
-                    <div class="chat-bubble">
-                        Hey! 👋 I'm Edward's AI assistant. Ask me anything about his skills, projects, experience, or how to get in touch.
-                    </div>
+                    <div class="chat-bubble">Hi! I am Edward's assistant. Ask me about his skills, projects, experience,
+                        or how to contact him.</div>
+                    <span class="chat-time" id="chatInitTime"></span>
                 </div>
                 <div class="chat-suggestions" id="chatSuggestions">
-                    <button class="chat-suggestion-pill">What are your top skills?</button>
-                    <button class="chat-suggestion-pill">Tell me about your projects</button>
-                    <button class="chat-suggestion-pill">What's your experience?</button>
-                    <button class="chat-suggestion-pill">How can I contact you?</button>
+                    <button class="chat-suggestion-pill">Top skills</button>
+                    <button class="chat-suggestion-pill">Projects</button>
+                    <button class="chat-suggestion-pill">Experience</button>
+                    <button class="chat-suggestion-pill">Contact info</button>
+                    <button class="chat-suggestion-pill">Certifications</button>
+                    <button class="chat-suggestion-pill">Available to hire?</button>
                 </div>
             </div>
-            <div class="chat-input-area">
-                <input type="text" class="chat-input" id="chatInput" placeholder="Ask me anything…" autocomplete="off" maxlength="300">
-                <button class="chat-send-btn" id="chatSend" aria-label="Send">
-                    <i class="fas fa-paper-plane"></i>
-                </button>
+            <div class="chat-input-wrap">
+                <div class="chat-input-row">
+                    <input type="text" class="chat-input" id="chatInput" placeholder="Type a message…"
+                        autocomplete="off" maxlength="300" aria-label="Chat message">
+                    <span class="chat-char-count" id="chatCharCount"></span>
+                    <button class="chat-send-btn" id="chatSend" aria-label="Send message" disabled>
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </div>
+                <p class="chat-input-hint">Press Enter to send</p>
             </div>
         </div>
     </div>
