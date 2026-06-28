@@ -265,6 +265,31 @@ if (track && prevBtn && nextBtn) {
 document.addEventListener('contextmenu', function (event) {
   event.preventDefault();
 });
+
+// disabled devtools / view-source shortcuts
+document.addEventListener('keydown', function (event) {
+  const key = event.key.toUpperCase();
+
+  // F12
+  if (event.key === 'F12') {
+    event.preventDefault();
+    return;
+  }
+
+  // Ctrl+Shift+I / Cmd+Opt+I (DevTools)
+  // Ctrl+Shift+J / Cmd+Opt+J (Console)
+  // Ctrl+Shift+C / Cmd+Opt+C (Inspect element)
+  if ((event.ctrlKey || event.metaKey) && event.shiftKey && ['I', 'J', 'C'].includes(key)) {
+    event.preventDefault();
+    return;
+  }
+
+  // Ctrl+U / Cmd+Opt+U (View source)
+  if ((event.ctrlKey || event.metaKey) && key === 'U') {
+    event.preventDefault();
+    return;
+  }
+});
 // =====================
 // PDF VIEWER MODAL
 // =====================
