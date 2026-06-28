@@ -400,7 +400,7 @@ document.addEventListener('keydown', e => {
         },
         {
             match: /skill|tech|stack|language|tool|framework|know|proficient/,
-            reply: "Edward's skill set:\n\nSecurity\n- Wazuh, Velociraptor, Sysmon, Metasploit\n- Burp Suite, Nmap, Wireshark\n- Incident Triage, Threat Hunting\n- Active Directory, Microsoft Defender\n\nDevelopment\n- PHP, JavaScript, Python, C#\n- React, Laravel, Django\n- MySQL, Firebase, MS SQL Server\n\nTools\n- Figma, Adobe Suite, Microsoft Visio\n- Git, GitHub, DaVinci Resolve"
+            reply: "Edward's skill set:\n\nSecurity\n- Wazuh, Suricata (IDS), Velociraptor, Sysmon, Metasploit\n- Burp Suite, Nmap, Wireshark\n- Incident Triage, Threat Hunting\n- Active Directory, Microsoft Defender\n\nDevelopment\n- PHP, JavaScript, Python, C#\n- React, Laravel, Django\n- MySQL, Firebase, MS SQL Server\n\nTools\n- Figma, Adobe Suite, Microsoft Visio\n- Git, GitHub, DaVinci Resolve"
         },
         {
             match: /inventor|inventory|capstone/,
