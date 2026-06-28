@@ -165,6 +165,55 @@ if (contactForm) {
 }
 
 // =====================
+// CHAT WIDGET TABS
+// =====================
+const chatTabs = document.querySelectorAll('.chat-tab');
+const chatPanels = document.querySelectorAll('.chat-panel');
+
+chatTabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+        chatTabs.forEach(t => t.classList.remove('active'));
+        chatPanels.forEach(p => p.classList.remove('active'));
+        tab.classList.add('active');
+        document.getElementById(tab.dataset.panel).classList.add('active');
+    });
+});
+
+// Chat widget contact form
+const chatContactForm = document.getElementById('chatContactForm');
+const chatFormSuccess = document.getElementById('chatFormSuccess');
+
+if (chatContactForm) {
+    chatContactForm.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        const btn = document.getElementById('chatFormSubmitBtn');
+        btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+        btn.disabled = true;
+
+        try {
+            const formData = new FormData(chatContactForm);
+            const res = await fetch('https://api.web3forms.com/submit', {
+                method: 'POST',
+                body: formData
+            });
+            const data = await res.json();
+            if (data.success) {
+                chatContactForm.style.display = 'none';
+                chatFormSuccess.style.display = 'flex';
+            } else {
+                btn.innerHTML = '<i class="fas fa-paper-plane"></i> Send Message';
+                btn.disabled = false;
+                alert('Something went wrong. Please try again.');
+            }
+        } catch (err) {
+            btn.innerHTML = '<i class="fas fa-paper-plane"></i> Send Message';
+            btn.disabled = false;
+            alert('Network error. Please try again.');
+        }
+    });
+}
+
+// =====================
 // GALLERY CAROUSEL
 // =====================
 const track = document.getElementById('carouselTrack');
