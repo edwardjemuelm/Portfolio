@@ -826,3 +826,35 @@ document.addEventListener('keydown', e => {
         if (Math.abs(dx) > 60) show(index + (dx > 0 ? 1 : -1));
     });
 })();
+
+// =====================
+// MOBILE HAMBURGER MENU
+// =====================
+(function () {
+    const toggle = document.getElementById('navToggle');
+    const menu = document.getElementById('navLinks');
+    if (!toggle || !menu) return;
+    const icon = toggle.querySelector('i');
+
+    function setMenu(open) {
+        menu.classList.toggle('open', open);
+        toggle.setAttribute('aria-expanded', String(open));
+        toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+        if (icon) icon.className = open ? 'fas fa-xmark' : 'fas fa-bars';
+    }
+
+    toggle.addEventListener('click', e => {
+        e.stopPropagation();
+        setMenu(!menu.classList.contains('open'));
+    });
+
+    // Close after choosing a section
+    menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => setMenu(false)));
+
+    // Close on outside click / Escape / when resizing back to desktop
+    document.addEventListener('click', e => {
+        if (!menu.contains(e.target) && !toggle.contains(e.target)) setMenu(false);
+    });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') setMenu(false); });
+    window.addEventListener('resize', () => { if (window.innerWidth > 768) setMenu(false); });
+})();
