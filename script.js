@@ -161,8 +161,10 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         const target = document.querySelector(this.getAttribute('href'));
         if (target) {
             e.preventDefault();
-            const top = target.getBoundingClientRect().top + window.scrollY;
-            window.scrollTo({ top, behavior: 'smooth' });
+            const navEl = document.getElementById('siteNav');
+            const offset = this.getAttribute('href') === '#home' ? 0 : (navEl ? navEl.offsetHeight : 0) + 8;
+            const top = target.getBoundingClientRect().top + window.scrollY - offset;
+            window.scrollTo({ top: Math.max(0, top), behavior: 'smooth' });
         }
     });
 });
@@ -825,4 +827,37 @@ document.addEventListener('keydown', e => {
         const dx = sx - e.changedTouches[0].clientX;
         if (Math.abs(dx) > 60) show(index + (dx > 0 ? 1 : -1));
     });
+})();
+
+// =====================
+// MOBILE HAMBURGER MENU
+// =====================
+(function () {
+    const toggle = document.getElementById('navToggle');
+    const menu = document.getElementById('navLinks');
+    if (!toggle || !menu) return;
+
+    function setMenu(open) {
+        menu.classList.toggle('open', open);
+        toggle.setAttribute('aria-expanded', String(open));
+        toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+        toggle.classList.toggle('is-open', open);
+    }
+
+    toggle.addEventListener('click', e => {
+        e.stopPropagation();
+        setMenu(!menu.classList.contains('open'));
+    });
+
+    // Close after choosing a section
+    menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => setMenu(false)));
+
+    // Close on outside click / Escape / when resizing back to desktop
+    const closeIfOutside = e => {
+        if (!menu.contains(e.target) && !toggle.contains(e.target)) setMenu(false);
+    };
+    document.addEventListener('click', closeIfOutside);
+    document.addEventListener('touchstart', closeIfOutside, { passive: true });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') setMenu(false); });
+    window.addEventListener('resize', () => { if (window.innerWidth > 768) setMenu(false); });
 })();
