@@ -10,10 +10,32 @@
         href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=DM+Sans:wght@400;500;600;700&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="icon" href="./image/mee.jpg" type="image/png">
+    <meta name="description"
+        content="Edward Jemuel G. Montano — aspiring SOC Analyst and cybersecurity associate. Home SOC labs, threat hunting, endpoint forensics and IT infrastructure experience.">
+    <meta name="theme-color" content="#11c79a">
+    <meta property="og:title" content="Edward Jemuel Montano — Aspiring SOC Analyst">
+    <meta property="og:description"
+        content="Home SOC labs, threat hunting, endpoint forensics and IT infrastructure experience.">
+    <meta property="og:image" content="./image/mee.jpg">
+    <link rel="icon" href="./image/mee.jpg" type="image/jpeg">
 </head>
 
 <body>
+
+    <!-- Sticky Nav -->
+    <header class="site-nav" id="siteNav">
+        <div class="container site-nav-inner">
+            <a href="#home" class="nav-brand" aria-label="Back to top">edw.rdjml</a>
+            <nav class="nav-links" id="navLinks" aria-label="Sections">
+                <a href="#about">About</a>
+                <a href="#skills">Skills</a>
+                <a href="#projects">Projects</a>
+                <a href="#experience">Experience</a>
+                <a href="#certifications">Certifications</a>
+                <a href="#gallery">Gallery</a>
+            </nav>
+        </div>
+    </header>
 
 
     <!-- Hero / Profile Header -->
@@ -42,8 +64,7 @@
                     </div>
                     <p class="profile-location"><i class="fas fa-map-marker-alt"></i> Metro Manila, Philippines
                     </p>
-                    <p class="profile-tagline">Aspiring SOC Analyst &nbsp;/&nbsp; Cybersecurity Associate
-                    </p>
+                    <p class="open-badge"><span class="open-dot"></span> Open to Cybersecurity/IT roles</p>
                     <div class="profile-actions">
                         <button class="btn-primary" id="openContactModal"><i class="fas fa-envelope"></i> Contact
                             Me</button>
@@ -119,11 +140,12 @@
                     <div class="stack-group">
                         <span class="stack-label">Security Operations & Threat Detection</span>
                         <div class="tag-row">
-                            <span class="tag">Wazuh (SIEM)</span><span class="tag">Suricata (IDS)</span><span class="tag">Velociraptor (DFIR)</span><span
-                                class="tag">Sysmon</span><span class="tag">Microsoft Defender</span><span
-                                class="tag">Log Analysis</span><span class="tag">Threat Hunting</span><span
-                                class="tag">Incident Triage</span><span class="tag">IOC Identification</span><span
-                                class="tag">Incident Reporting & Escalation</span><span class="tag">Jira</span>
+                            <span class="tag">Wazuh (SIEM)</span><span class="tag">Suricata (IDS)</span><span
+                                class="tag">Velociraptor (DFIR)</span><span class="tag">Sysmon</span><span
+                                class="tag">Microsoft Defender</span><span class="tag">Log Analysis</span><span
+                                class="tag">Threat Hunting</span><span class="tag">Incident Triage</span><span
+                                class="tag">IOC Identification</span><span class="tag">Incident Reporting &
+                                Escalation</span><span class="tag">Jira</span>
                         </div>
                     </div>
                     <div class="stack-group">
@@ -201,6 +223,14 @@
             <section id="projects" class="card-section">
                 <div class="section-header-row">
                     <h2 class="section-title">Recent Projects</h2>
+                </div>
+                <div class="projects-filter-row" id="projectFilters" role="group" aria-label="Filter projects">
+                    <button class="filter-pill active" data-filter="all">All</button>
+                    <button class="filter-pill" data-filter="security">Security</button>
+                    <button class="filter-pill" data-filter="system">Systems</button>
+                    <button class="filter-pill" data-filter="web">Web</button>
+                    <button class="filter-pill" data-filter="media">Media</button>
+                    <button class="filter-pill" data-filter="game">Games</button>
                 </div>
                 <div class="projects-grid" id="projectsList">
 
@@ -480,16 +510,6 @@
                     <div class="exp-item">
                         <div class="exp-dot filled"></div>
                         <div class="exp-content">
-                            <h4 class="exp-role">IT Infrastructure Intern</h4>
-                            <p class="exp-company">Prople BPO Inc.</p>
-                            <p class="exp-detail">Mandaluyong City</p>
-                            <span class="exp-year">Jun – Nov 2025</span>
-                        </div>
-                    </div>
-
-                    <div class="exp-item">
-                        <div class="exp-dot"></div>
-                        <div class="exp-content">
                             <h4 class="exp-role">IT Support Specialist</h4>
                             <p class="exp-company">PMX 515 Prime Inc.</p>
                             <p class="exp-detail">Malabon City</p>
@@ -500,9 +520,19 @@
                     <div class="exp-item">
                         <div class="exp-dot"></div>
                         <div class="exp-content">
+                            <h4 class="exp-role">IT Infrastructure Intern</h4>
+                            <p class="exp-company">Prople BPO Inc.</p>
+                            <p class="exp-detail">Mandaluyong City</p>
+                            <span class="exp-year">Jun – Nov 2025</span>
+                        </div>
+                    </div>
+
+                    <div class="exp-item">
+                        <div class="exp-dot"></div>
+                        <div class="exp-content">
                             <h4 class="exp-role">Full Stack Developer</h4>
                             <p class="exp-company">Freelance / Capstone Projects</p>
-                            <span class="exp-year">2023 – 2025</span>
+                            <span class="exp-year">2023 – 2026</span>
                         </div>
                     </div>
 
@@ -529,52 +559,111 @@
 
             <!-- Certifications -->
             <section id="certifications" class="card-section">
-                <h2 class="section-title">Certifications & Training</h2>
+                <h2 class="section-title">Certifications &amp; Training</h2>
+                <p class="cert-hint">Select a certificate to view it.</p>
                 <div class="cert-list">
-                    <div class="cert-row">
-                        <span class="cert-name">Cybersecurity Training Program – DICT Region III</span>
-                        <span class="cert-issuer">Department of Information and Communications Technology - Philippines</span>
-                    </div>
-                    <div class="cert-row">
-                        <span class="cert-name">Cybersecurity Defense Analyst</span>
-                        <span class="cert-issuer">Cisco Networking Academy</span>
-                    </div>
-                    <div class="cert-row">
-                        <span class="cert-name">Junior Cybersecurity Analyst</span>
-                        <span class="cert-issuer">Cisco Networking Academy</span>
-                    </div>
-                    <div class="cert-row">
-                        <span class="cert-name">Introduction to Cybersecurity</span>
-                        <span class="cert-issuer">Cisco Networking Academy</span>
-                    </div>
-                    <div class="cert-row">
-                        <span class="cert-name">SOC Level 1</span>
-                        <span class="cert-issuer">TryHackMe</span>
-                    </div>
-                    <div class="cert-row">
-                        <span class="cert-name">Jr. Penetration Tester</span>
-                        <span class="cert-issuer">TryHackMe</span>
-                    </div>
-                    <div class="cert-row">
-                        <span class="cert-name">Cyber Security 101</span>
-                        <span class="cert-issuer">TryHackMe</span>
-                    </div>
-                    <div class="cert-row">
-                        <span class="cert-name">Google Workspace Admin Training</span>
-                        <span class="cert-issuer">Globe Business</span>
-                    </div>
-                    <div class="cert-row">
-                        <span class="cert-name">Google Workspace End User Training</span>
-                        <span class="cert-issuer">Globe Business</span>
-                    </div>
-                    <div class="cert-row">
-                        <span class="cert-name">Ignite the Power of Cybersecurity with Sophos</span>
-                        <span class="cert-issuer">Micro Pacific Technologies</span>
-                    </div>
-                    <div class="cert-row">
-                        <span class="cert-name">Data Protection & Cloud Security Workshop</span>
-                        <span class="cert-issuer">Rubrik & Microsoft</span>
-                    </div>
+                    <button type="button" class="cert-row" data-cert="./pdf/dict-cybersecurity-training"
+                        data-title="Cybersecurity Training Program – DICT Region III"
+                        data-issuer="Department of Information and Communications Technology - Philippines">
+                        <span class="cert-icon"><i class="fas fa-award"></i></span>
+                        <span class="cert-text">
+                            <span class="cert-name">Cybersecurity Training Program – DICT Region III</span>
+                            <span class="cert-issuer">Department of Information and Communications Technology -
+                                Philippines</span>
+                        </span>
+                        <span class="cert-view"><i class="fas fa-eye"></i></span>
+                    </button>
+                    <button type="button" class="cert-row" data-cert="./pdf/cisco-cybersecurity-defense-analyst"
+                        data-title="Cybersecurity Defense Analyst" data-issuer="Cisco Networking Academy">
+                        <span class="cert-icon"><i class="fas fa-award"></i></span>
+                        <span class="cert-text">
+                            <span class="cert-name">Cybersecurity Defense Analyst</span>
+                            <span class="cert-issuer">Cisco Networking Academy</span>
+                        </span>
+                        <span class="cert-view"><i class="fas fa-eye"></i></span>
+                    </button>
+                    <button type="button" class="cert-row" data-cert="./pdf/cisco-junior-cybersecurity-analyst"
+                        data-title="Junior Cybersecurity Analyst" data-issuer="Cisco Networking Academy">
+                        <span class="cert-icon"><i class="fas fa-award"></i></span>
+                        <span class="cert-text">
+                            <span class="cert-name">Junior Cybersecurity Analyst</span>
+                            <span class="cert-issuer">Cisco Networking Academy</span>
+                        </span>
+                        <span class="cert-view"><i class="fas fa-eye"></i></span>
+                    </button>
+                    <button type="button" class="cert-row" data-cert="./pdf/cisco-intro-cybersecurity"
+                        data-title="Introduction to Cybersecurity" data-issuer="Cisco Networking Academy">
+                        <span class="cert-icon"><i class="fas fa-award"></i></span>
+                        <span class="cert-text">
+                            <span class="cert-name">Introduction to Cybersecurity</span>
+                            <span class="cert-issuer">Cisco Networking Academy</span>
+                        </span>
+                        <span class="cert-view"><i class="fas fa-eye"></i></span>
+                    </button>
+                    <button type="button" class="cert-row" data-cert="./pdf/tryhackme-soc-level-1"
+                        data-title="SOC Level 1" data-issuer="TryHackMe">
+                        <span class="cert-icon"><i class="fas fa-award"></i></span>
+                        <span class="cert-text">
+                            <span class="cert-name">SOC Level 1</span>
+                            <span class="cert-issuer">TryHackMe</span>
+                        </span>
+                        <span class="cert-view"><i class="fas fa-eye"></i></span>
+                    </button>
+                    <button type="button" class="cert-row" data-cert="./pdf/tryhackme-jr-penetration-tester"
+                        data-title="Jr. Penetration Tester" data-issuer="TryHackMe">
+                        <span class="cert-icon"><i class="fas fa-award"></i></span>
+                        <span class="cert-text">
+                            <span class="cert-name">Jr. Penetration Tester</span>
+                            <span class="cert-issuer">TryHackMe</span>
+                        </span>
+                        <span class="cert-view"><i class="fas fa-eye"></i></span>
+                    </button>
+                    <button type="button" class="cert-row" data-cert="./pdf/tryhackme-cyber-security-101"
+                        data-title="Cyber Security 101" data-issuer="TryHackMe">
+                        <span class="cert-icon"><i class="fas fa-award"></i></span>
+                        <span class="cert-text">
+                            <span class="cert-name">Cyber Security 101</span>
+                            <span class="cert-issuer">TryHackMe</span>
+                        </span>
+                        <span class="cert-view"><i class="fas fa-eye"></i></span>
+                    </button>
+                    <button type="button" class="cert-row" data-cert="./pdf/globe-google-workspace-admin"
+                        data-title="Google Workspace Admin Training" data-issuer="Globe Business">
+                        <span class="cert-icon"><i class="fas fa-award"></i></span>
+                        <span class="cert-text">
+                            <span class="cert-name">Google Workspace Admin Training</span>
+                            <span class="cert-issuer">Globe Business</span>
+                        </span>
+                        <span class="cert-view"><i class="fas fa-eye"></i></span>
+                    </button>
+                    <button type="button" class="cert-row" data-cert="./pdf/globe-google-workspace-end-user"
+                        data-title="Google Workspace End User Training" data-issuer="Globe Business">
+                        <span class="cert-icon"><i class="fas fa-award"></i></span>
+                        <span class="cert-text">
+                            <span class="cert-name">Google Workspace End User Training</span>
+                            <span class="cert-issuer">Globe Business</span>
+                        </span>
+                        <span class="cert-view"><i class="fas fa-eye"></i></span>
+                    </button>
+                    <button type="button" class="cert-row" data-cert="./pdf/sophos-ignite-cybersecurity"
+                        data-title="Ignite the Power of Cybersecurity with Sophos"
+                        data-issuer="Micro Pacific Technologies">
+                        <span class="cert-icon"><i class="fas fa-award"></i></span>
+                        <span class="cert-text">
+                            <span class="cert-name">Ignite the Power of Cybersecurity with Sophos</span>
+                            <span class="cert-issuer">Micro Pacific Technologies</span>
+                        </span>
+                        <span class="cert-view"><i class="fas fa-eye"></i></span>
+                    </button>
+                    <button type="button" class="cert-row" data-cert="./pdf/rubrik-microsoft-data-protection"
+                        data-title="Data Protection &amp; Cloud Security Workshop" data-issuer="Rubrik &amp; Microsoft">
+                        <span class="cert-icon"><i class="fas fa-award"></i></span>
+                        <span class="cert-text">
+                            <span class="cert-name">Data Protection &amp; Cloud Security Workshop</span>
+                            <span class="cert-issuer">Rubrik &amp; Microsoft</span>
+                        </span>
+                        <span class="cert-view"><i class="fas fa-eye"></i></span>
+                    </button>
                 </div>
             </section>
 
@@ -616,11 +705,13 @@
             <section class="card-section">
                 <h2 class="section-title">Social Links</h2>
                 <div class="social-list">
-                    <a href="https://www.linkedin.com/in/edwardjemuelmontano" class="social-row" target="_blank">
+                    <a href="https://www.linkedin.com/in/edwardjemuelmontano" class="social-row" target="_blank"
+                        rel="noopener noreferrer">
                         <i class="fab fa-linkedin"></i>
                         <span>LinkedIn</span>
                     </a>
-                    <a href="https://edwardjemuelm.github.io/Portfolio/" class="social-row" target="_blank">
+                    <a href="https://edwardjemuelm.github.io/Portfolio/" class="social-row" target="_blank"
+                        rel="noopener noreferrer">
                         <i class="fab fa-github"></i>
                         <span>GitHub Portfolio</span>
                     </a>
@@ -720,52 +811,52 @@
                 <div class="carousel-track-container">
                     <div class="carousel-track" id="carouselTrack">
                         <div class="carousel-slide">
-                            <img src="./image/6.jpg" loading="lazy">
+                            <img src="./image/6.jpg" alt="Gallery photo 1" loading="lazy">
                         </div>
                         <div class="carousel-slide">
-                            <img src="./image/5.jpg" loading="lazy">
+                            <img src="./image/5.jpg" alt="Gallery photo 2" loading="lazy">
                         </div>
                         <div class="carousel-slide">
-                            <img src="./image/4.jfif" loading="lazy">
+                            <img src="./image/4.jfif" alt="Gallery photo 3" loading="lazy">
                         </div>
                         <div class="carousel-slide">
-                            <img src="./image/9.jfif" loading="lazy">
+                            <img src="./image/9.jfif" alt="Gallery photo 4" loading="lazy">
                         </div>
                         <div class="carousel-slide">
-                            <img src="./image/12.jpg" loading="lazy">
+                            <img src="./image/12.jpg" alt="Gallery photo 5" loading="lazy">
                         </div>
                         <div class="carousel-slide">
-                            <img src="./image/3.jfif" loading="lazy">
+                            <img src="./image/3.jfif" alt="Gallery photo 6" loading="lazy">
                         </div>
                         <div class="carousel-slide">
-                            <img src="./image/2.jfif" loading="lazy">
+                            <img src="./image/2.jfif" alt="Gallery photo 7" loading="lazy">
                         </div>
                         <div class="carousel-slide">
-                            <img src="./image/1.jfif" loading="lazy">
+                            <img src="./image/1.jfif" alt="Gallery photo 8" loading="lazy">
                         </div>
                         <div class="carousel-slide">
-                            <img src="./image/7.jpg" loading="lazy">
+                            <img src="./image/7.jpg" alt="Gallery photo 9" loading="lazy">
                         </div>
                         <div class="carousel-slide">
-                            <img src="./image/13.jpg" loading="lazy">
+                            <img src="./image/13.jpg" alt="Gallery photo 10" loading="lazy">
                         </div>
                         <div class="carousel-slide">
-                            <img src="./image/8.jpg" loading="lazy">
+                            <img src="./image/8.jpg" alt="Gallery photo 11" loading="lazy">
                         </div>
                         <div class="carousel-slide">
-                            <img src="./image/10.jpg" loading="lazy">
+                            <img src="./image/10.jpg" alt="Gallery photo 12" loading="lazy">
                         </div>
                         <div class="carousel-slide">
-                            <img src="./image/11.jfif" loading="lazy">
+                            <img src="./image/11.jfif" alt="Gallery photo 13" loading="lazy">
                         </div>
                         <div class="carousel-slide">
-                            <img src="./image/13.jfif" loading="lazy">
+                            <img src="./image/13.jfif" alt="Gallery photo 14" loading="lazy">
                         </div>
                         <div class="carousel-slide">
-                            <img src="./image/14.jfif" loading="lazy">
+                            <img src="./image/14.jfif" alt="Gallery photo 15" loading="lazy">
                         </div>
                         <div class="carousel-slide">
-                            <img src="./image/15.jfif" loading="lazy">
+                            <img src="./image/15.jfif" alt="Gallery photo 16" loading="lazy">
                         </div>
                     </div>
                 </div>
@@ -832,6 +923,35 @@
         </div>
     </div>
 
+    <!-- Certificate Viewer (image only) -->
+    <div class="cert-modal-overlay" id="certModalOverlay" aria-hidden="true">
+        <div class="cert-modal" role="dialog" aria-modal="true" aria-labelledby="certModalTitle">
+            <div class="cert-modal-header">
+                <div class="cert-modal-heading">
+                    <span class="cert-modal-title" id="certModalTitle">Certificate</span>
+                    <span class="cert-modal-sub" id="certModalSub"></span>
+                </div>
+                <div class="cert-modal-tools">
+                    <button class="cert-tool" id="certZoomOut" aria-label="Zoom out"><i
+                            class="fas fa-search-minus"></i></button>
+                    <button class="cert-tool" id="certZoomIn" aria-label="Zoom in"><i
+                            class="fas fa-search-plus"></i></button>
+                    <button class="cert-tool cert-close" id="certClose" aria-label="Close">&times;</button>
+                </div>
+            </div>
+            <div class="cert-stage-wrap">
+                <button class="cert-nav cert-nav-prev" id="certPrev" aria-label="Previous certificate"><i
+                        class="fas fa-chevron-left"></i></button>
+                <div class="cert-stage" id="certStage" tabindex="0"></div>
+                <button class="cert-nav cert-nav-next" id="certNext" aria-label="Next certificate"><i
+                        class="fas fa-chevron-right"></i></button>
+            </div>
+            <div class="cert-modal-footer"><span id="certCounter"></span></div>
+        </div>
+    </div>
+
+    <button class="back-to-top" id="backToTop" aria-label="Back to top"><i class="fas fa-arrow-up"></i></button>
+
     <!-- PDF Viewer Modal -->
     <div class="pdf-modal-overlay" id="pdfModalOverlay">
         <div class="pdf-modal">
@@ -874,16 +994,6 @@
             </div>
         </div>
 
-        <!-- Tab Bar -->
-        <div class="chat-tabs">
-            <button class="chat-tab active" id="tabChat" data-panel="panelChat">
-                <i class="fas fa-robot"></i> Ask Assistant
-            </button>
-            <button class="chat-tab" id="tabContact" data-panel="panelContact">
-                <i class="fas fa-envelope"></i> Send Message
-            </button>
-        </div>
-
         <!-- Panel: Assistant Chat -->
         <div class="chat-body chat-panel active" id="panelChat">
             <div class="chat-messages" id="chatMessages">
@@ -912,38 +1022,6 @@
                     </button>
                 </div>
                 <p class="chat-input-hint">Press Enter to send</p>
-            </div>
-        </div>
-
-        <!-- Panel: Contact Form -->
-        <div class="chat-body chat-panel" id="panelContact">
-            <div class="chat-contact-form-wrap">
-                <p class="chat-contact-intro">Send Edward a direct message and he'll get back to you soon.</p>
-                <form class="contact-form chat-contact-form" id="chatContactForm"
-                    action="https://api.web3forms.com/submit" method="POST">
-                    <input type="hidden" name="access_key" value="a90f4037-6da4-4713-82bb-a65ca8d2dfe7" />
-                    <input type="hidden" name="subject" value="New Contact from Portfolio" />
-                    <div class="form-field">
-                        <label>Your Name</label>
-                        <input type="text" name="name" required placeholder="Name">
-                    </div>
-                    <div class="form-field">
-                        <label>Email</label>
-                        <input type="email" name="email" required placeholder="Email Address">
-                    </div>
-                    <div class="form-field">
-                        <label>Message</label>
-                        <textarea name="message" rows="3" required placeholder="How can I help you?"></textarea>
-                    </div>
-                    <button type="submit" class="btn-primary full-width" id="chatFormSubmitBtn">
-                        <i class="fas fa-paper-plane"></i> Send Message
-                    </button>
-                    <input type="checkbox" name="botcheck" style="display:none">
-                </form>
-                <div class="chat-form-success" id="chatFormSuccess" style="display:none">
-                    <i class="fas fa-circle-check"></i>
-                    <p>Message sent! Edward will get back to you soon.</p>
-                </div>
             </div>
         </div>
     </div>
